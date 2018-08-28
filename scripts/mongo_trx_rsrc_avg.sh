@@ -5,6 +5,7 @@ file_name=trx_rsrc_avg_results_$limit_num
 
 if  [ $# -eq 1 ]; then
    limit_num=$1
+   file_name=trx_rsrc_avg_results_$limit_num
 elif [ $# -eq 2 ]; then
    limit_num=$1
    file_name=$2
