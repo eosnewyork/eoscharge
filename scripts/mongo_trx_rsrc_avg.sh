@@ -18,4 +18,4 @@ mongo EOS --eval 'db.blocks.aggregate([{"$sort":{"block_num":-1}},{"$limit":'"$l
 
 echo "aggregation done.  exporting to csv and json."
 mongoexport -d EOS -c trx_rsrc_avg_results_$limit_num -f _id.acct,_id.name,avg_cpu_us,avg_net_words,count --type=csv > $file_name.csv
-mongoexport -d EOS -c trx_rsrc_avg_results_$limit_num -f _id.acct,_id.name,avg_cpu_us,avg_net_words,count --type=json > $file_name.json
+mongoexport -d EOS -c trx_rsrc_avg_results_$limit_num -f _id.acct,_id.name,avg_cpu_us,avg_net_words,count --type=json --jsonArray > $file_name.json
