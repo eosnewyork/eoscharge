@@ -23,7 +23,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://ghoti143.github.io/eos-charge",
+  "homepage": "https://www.eoscharge.io",
   "devDependencies": {
     "gh-pages": "^1.2.0"
   }
