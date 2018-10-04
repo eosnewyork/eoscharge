@@ -5,7 +5,8 @@ const cookies = new Cookies();
 
 const defaultAccount = {
   net_limit: {used: 100, available: 0, max: 100},
-  cpu_limit: {used: 100, available: 0, max: 100}
+  cpu_limit: {used: 100, available: 0, max: 100},
+  total_resources: {net_weight: "0.0000 EOS", cpu_weight: "0.0000 EOS"}
 }
 
 class AccountStore {

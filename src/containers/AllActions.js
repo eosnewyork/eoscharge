@@ -52,25 +52,34 @@ class AllActions extends Component {
             ))}
           </Grid>
 
-          <div className={classes.buttons}>
-            <Typography variant="body1" color="textSecondary">
-              {actionStore.startIdx + 1} - {actionStore.endIdx} of {actionStore.sortedList.length}
-            </Typography>
+          {actionStore.sortedList.length > 0 ? 
 
-            <div>
-            <Button disabled={actionStore.startIdx === 0} onClick={this.handleBack} className={classes.button}>
-              Back
-            </Button>
-          
-            <Button disabled={actionStore.endIdx === actionStore.sortedList.length}
-              variant="contained"
-              color="primary"
-              onClick={this.handleNext}
-              className={classes.button}>
-              Next
-            </Button>
+            <div className={classes.buttons}>
+              <Typography variant="body1" color="textSecondary">
+                {actionStore.startIdx + 1} - {actionStore.endIdx} of {actionStore.sortedList.length}
+              </Typography>
+
+              <div>
+              <Button disabled={actionStore.startIdx === 0} onClick={this.handleBack} className={classes.button}>
+                Back
+              </Button>
+            
+              <Button disabled={actionStore.endIdx === actionStore.sortedList.length}
+                variant="contained"
+                color="primary"
+                onClick={this.handleNext}
+                className={classes.button}>
+                Next
+              </Button>
+              </div>
             </div>
-          </div>  
+            
+            : 
+            
+            <Typography variant="title" align="center" color="textSecondary" paragraph>
+              No actions found containing "{actionStore.filter}"
+            </Typography>
+          }
         
         </div>}
       </React.Fragment>

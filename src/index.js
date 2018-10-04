@@ -21,6 +21,30 @@ const theme = createMuiTheme({
       'sans-serif'
     ].join(','),
   },
+  palette: {
+    primary: {
+      //main: '#A4BDC3',
+      light: '#A4BDC3',
+      //dark: '#A4BDC3',
+      main: '#1B5A6C',
+      //light: '#A4BDC3',
+      //dark: '#121921' dark teal
+      //dark: '#7B7D7D'
+      dark: '#3a93a5' //from website
+
+    },
+    secondary: {
+      main: '#A4BDC3'
+    },
+    text: {
+      primary: '#323233',
+      secondary: '#7B7D7D'
+    },
+    background: {
+      paper: '#FFFFFF',
+      default: '#EDEDED'
+    }
+  }
 })
 
 const app = 

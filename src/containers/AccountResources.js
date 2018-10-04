@@ -26,10 +26,20 @@ class AccountResources extends Component {
       <Collapse in={['done'].includes(store.state)}>        
           <Grid container className={classes.batteryRoot} spacing={16} justify="center">
             <Grid item>
-              <Battery type="cpu" available={store.account.cpu_limit.available} max={store.account.cpu_limit.max} />  
+              <Battery 
+                type="cpu" 
+                available={store.account.cpu_limit.available} 
+                max={store.account.cpu_limit.max} 
+                staked={store.account.total_resources.cpu_weight}
+              />  
             </Grid>
             <Grid item>
-              <Battery type="net" available={store.account.net_limit.available} max={store.account.net_limit.max} />
+              <Battery 
+                type="net" 
+                available={store.account.net_limit.available} 
+                max={store.account.net_limit.max} 
+                staked={store.account.total_resources.net_weight} 
+              />
             </Grid>
           </Grid>
       </Collapse>          

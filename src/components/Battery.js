@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import Typography from '@material-ui/core/Typography'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Utils from './Utils'
+import FlashOnIcon from '@material-ui/icons/FlashOn'
+import SdStorage from '@material-ui/icons/SdStorage'
 
 const styles = theme => ({
   wrapper: {
@@ -15,13 +17,23 @@ const styles = theme => ({
   graphic: {
     width: '100%'
   },
+  batteryOutline: {
+    fill: theme.palette.primary.light
+  },
+  batteryFill: {
+    fill: theme.palette.primary.main
+  },
   pctLabel: {
     top: '40%',
     width: '100%',
     position: 'absolute',
-    color: 'white',
+    color: theme.palette.primary.contrastText,
     fontSize: '1.3rem',
     textShadow: '1px 1px 5px rgba(0, 0, 0, 0.5)'
+  },
+  typeLabel: {
+    display: 'flex',
+    justifyContent: 'center'
   }
 })
 
@@ -47,26 +59,32 @@ class Battery extends Component {
   }
 
   render() {
-    const {classes, type, available, max} = this.props
+    const {classes, type, available, max, staked} = this.props
     const pct = Math.round(available / max * 100)
     const svgPath = this.createSvgPath(pct)
     const qty = Utils.formatQuantity(available, type)
-
-    let color = pct > 20 ? 'green' : 'red'
+    
+    //let color = pct > 20 ? '#A4BDC3' : 'red'
     
     return ( 
       <div className={classes.wrapper}>
-        <Typography variant="title" align="center">{this.props.type.toUpperCase()}</Typography>
+        <div className={classes.typeLabel}>
+          {this.props.type === 'net' ? <SdStorage /> : <FlashOnIcon />}                  
+          <Typography variant="title" align="center">
+            {this.props.type.toUpperCase()}
+          </Typography>
+        </div>
         <div className={classes.batteryContainer} align="center">
           <svg focusable="false" viewBox="0 0 24 24" className={classes.graphic}>
-            <path fillOpacity="0.3" d="M17 5.33C17 4.6 16.4 4 15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33V20.5h10V5.33z"></path>
-            <path d={svgPath} fill={color}></path>
+            <path className={classes.batteryOutline} d="M17 5.33C17 4.6 16.4 4 15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33V20.5h10V5.33z"></path>
+            <path className={classes.batteryFill} d={svgPath}></path>
             <path fill="none" d="M0 0h24v24H0z"></path>            
           </svg>
           
           <Typography className={classes.pctLabel} variant="body2" align="center">{`${pct}%`}</Typography>
         </div>
         <Typography variant="body1" align="center">{`${qty}`}</Typography>
+        <Typography variant="body1" align="center">{staked}</Typography>
       </div>
     )
   }
