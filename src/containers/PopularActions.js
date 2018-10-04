@@ -14,7 +14,7 @@ const styles = theme => ({
 
 class PopularActions extends Component {
   componentWillReact() {
-    console.log("PopularActions will rerender")
+    
   }
 
   render() {

@@ -48,7 +48,7 @@ class AccountForm extends Component {
   }
 
   componentWillReact() {
-    console.log("Account will rerender")
+    
   }
 
   handleAcctNameChange = e => {

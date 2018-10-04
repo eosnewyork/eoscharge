@@ -9,20 +9,13 @@ const styles = theme => ({
   },
   batteryContainer: {
     position: 'relative',
-    //height: '100%',
     display: 'inline-block',
-    //alignItems: 'center',
-    //justifyContent: 'center',
-    //flexDirection: 'column',
     textAlign: 'center'
   },
   graphic: {
-    //height: '100%'
-    width: '100%',
-    //position: 'relative'
+    width: '100%'
   },
   pctLabel: {
-    //position: 'absolute',
     top: '40%',
     width: '100%',
     position: 'absolute',
@@ -60,7 +53,7 @@ class Battery extends Component {
     const qty = Utils.formatQuantity(available, type)
 
     let color = pct > 20 ? 'green' : 'red'
-    console.log('battery rendering')
+    
     return ( 
       <div className={classes.wrapper}>
         <Typography variant="title" align="center">{this.props.type.toUpperCase()}</Typography>

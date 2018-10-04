@@ -25,7 +25,7 @@ class AllActions extends Component {
   }
 
   componentWillReact() {
-    console.log("AllActions will rerender")
+    
   }
 
   handleBack = foo => {

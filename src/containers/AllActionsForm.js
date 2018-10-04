@@ -8,8 +8,10 @@ import Typography from '@material-ui/core/Typography'
 
 
 const styles = theme => ({
-  heroButtons: {
+  form: {
     marginTop: theme.spacing.unit * 4,
+    marginLeft: theme.spacing.unit * 4,
+    marginRight: theme.spacing.unit * 4
   },
 })
 
@@ -34,7 +36,7 @@ class AllActionsForm extends Component {
             Type a dApp account name or action name below to filter the list of actions
           </Typography>
 
-          <div className={classes.heroButtons}>
+          <div className={classes.form}>
             <FormControl margin="none" required fullWidth>
               <InputLabel htmlFor="filter">Search</InputLabel>
               <SearchInput id="filter" 

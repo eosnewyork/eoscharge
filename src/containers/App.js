@@ -57,6 +57,9 @@ const styles = theme => ({
     width: 60,
     marginBottom: theme.spacing.unit * 2
   },
+  disclaimer: {
+    marginTop: theme.spacing.unit * 2
+  },
 })
 
 class App extends Component {
@@ -83,10 +86,10 @@ class App extends Component {
         <div className={classes.heroUnit}>
           <div className={classes.heroContent}>
             <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
-              Check Your Charge
+              Take Charge of Your Account
             </Typography>
             <Typography variant="title" align="center" color="textSecondary" paragraph>
-              Enter your EOS Account below to recieve a custom report of how many actions you can perform on the EOS Mainnet.
+              Enter your EOS Account below to recieve a custom report of how many actions you can perform on the EOS Mainnet
             </Typography>
             <div className={classes.heroButtons}>
               <Account />              
@@ -112,14 +115,15 @@ class App extends Component {
           </div>
         </div>
       </main>
-      {/* Footer */}
       <footer className={classes.footer} aligh="center">
         <img className={classes.footerLogo} src="./images/EOS-NY_logo.svg" align="center" alt="EOS New York logo" />
         <Typography variant="subheading" align="center" color="textSecondary">
           Made with <span role="img" aria-label="heart" aria-labelledby="heart">❤️</span> by <a target="_blank" rel="noopener noreferrer" href="https://www.eosnewyork.io/">EOS New York</a>
         </Typography>
+        <Typography className={classes.disclaimer} variant="body1" align="center" color="textSecondary">
+          DISCLAIMER: EOS Charge is based on <a target="_blank" rel="noopener noreferrer" href="https://www.eossnapshots.io/?prefix=data/eoscharge/">calculations</a> performed hourly on the last 100k blocks of the EOS Mainnet.
+        </Typography>
       </footer>
-      {/* End footer */}
     </React.Fragment>
     )
   }

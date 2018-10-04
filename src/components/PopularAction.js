@@ -3,9 +3,10 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
-import Typography from '@material-ui/core/Typography'
 import Utils from './Utils'
 import Badge from '@material-ui/core/Badge'
+import ActionText from './ActionText'
+import ActionFooter from './ActionFooter'
 
 const styles = theme => ({
   card: {
@@ -36,30 +37,30 @@ class PopularAction extends Component {
   render() {
     const {classes, action, availCpu} = this.props
     const count = Utils.computeCount(availCpu, action.avg_cpu_us)
-    const badgeCount = count > 999 ? "999⁺" : count
+    const badgeCount = Utils.badgeCount(count)
     const cpu = Utils.formatQuantity(availCpu, 'cpu')
+    const avgCpu = Utils.formatQuantity(action.avg_cpu_us, 'cpu')
+    const avgNet = Utils.formatQuantity(action.avg_net_words, 'words')
 
     return (
       <Badge classes={{root: classes.badgeRoot, badge: classes.badge}} badgeContent={badgeCount} color="primary">
-      <Card className={classes.card}>
-        <CardMedia
-          className={classes.cardMedia}
-          component="img"
-          image={`./images/${action.img}`}
-          height="140"
-          title="Image title"
-        />
-        <CardContent className={classes.cardContent}>
-          <Typography variant="title">
-            {action.title}
-          </Typography>
-          <Typography gutterBottom variant="subheading">
-            {action.subtitle}
-          </Typography>
-          <Typography component="p" dangerouslySetInnerHTML={Utils.createMarkup(cpu, count, action.description)}>
-          </Typography>
-        </CardContent>
-      </Card>
+        <Card className={classes.card}>
+          <CardMedia
+            className={classes.cardMedia}
+            component="img"
+            image={`./images/${action.img}`}
+            height="140"
+            title="Image title"
+          />
+          <CardContent className={classes.cardContent}>
+            <ActionText 
+              title={action.title} 
+              subtitle={action.subtitle} 
+              description={Utils.createMarkup(cpu, count, action.description)} 
+            />
+          </CardContent>
+          <ActionFooter avgCpu={avgCpu} avgNet={avgNet} />
+        </Card>
       </Badge>
     )
   }

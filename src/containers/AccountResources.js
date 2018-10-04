@@ -15,7 +15,7 @@ const styles = theme => ({
 
 class AccountResources extends Component {
   componentWillReact() {
-    console.log("AccountResources will rerender")
+    
   }
 
   render() {
@@ -26,10 +26,10 @@ class AccountResources extends Component {
       <Collapse in={['done'].includes(store.state)}>        
           <Grid container className={classes.batteryRoot} spacing={16} justify="center">
             <Grid item>
-              <Battery type="net" available={store.account.net_limit.available} max={store.account.net_limit.max} />
+              <Battery type="cpu" available={store.account.cpu_limit.available} max={store.account.cpu_limit.max} />  
             </Grid>
             <Grid item>
-              <Battery type="cpu" available={store.account.cpu_limit.available} max={store.account.cpu_limit.max} />
+              <Battery type="net" available={store.account.net_limit.available} max={store.account.net_limit.max} />
             </Grid>
           </Grid>
       </Collapse>          
