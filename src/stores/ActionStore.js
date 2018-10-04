@@ -94,14 +94,11 @@ class ActionStore {
 
   get popularActions() {
     const popularActions = this.actions.filter(action => {
-      console.log(action)
       return action.uniqueId in this.popContent
     }).map(action => {
       const popContent = this.popContent[action.uniqueId]
       return {...action, ...popContent}
     })
-
-    console.log(popularActions.length)
 
     return popularActions
   }
