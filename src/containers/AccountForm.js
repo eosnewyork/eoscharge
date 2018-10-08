@@ -1,15 +1,15 @@
-import React, {Component} from 'react'
-import {inject, observer} from 'mobx-react'
-import withStyles from '@material-ui/core/styles/withStyles';
-import Button from '@material-ui/core/Button';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import FormLabel from '@material-ui/core/FormLabel';
-import FormControl from '@material-ui/core/FormControl';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import CheckIcon from '@material-ui/icons/Check';
-import SearchIcon from '@material-ui/icons/Search';
-import PriorityHighIcon from '@material-ui/icons/PriorityHigh';
+import React, { Component } from 'react'
+import { inject, observer } from 'mobx-react'
+import withStyles from '@material-ui/core/styles/withStyles'
+import Button from '@material-ui/core/Button'
+import CircularProgress from '@material-ui/core/CircularProgress'
+import FormLabel from '@material-ui/core/FormLabel'
+import FormControl from '@material-ui/core/FormControl'
+import Input from '@material-ui/core/Input'
+import InputLabel from '@material-ui/core/InputLabel'
+import CheckIcon from '@material-ui/icons/Check'
+import SearchIcon from '@material-ui/icons/Search'
+import PriorityHighIcon from '@material-ui/icons/PriorityHigh'
 
 const styles = theme => ({
   button: {
@@ -43,21 +43,12 @@ class AccountForm extends Component {
     this.props.store.loadAccount()
   }  
 
-  componentDidMount() {
-    
-  }
-
-  componentWillReact() {
-    
-  }
-
   handleAcctNameChange = e => {
     this.props.store.setAccountName(e.target.value)
   }
 
   render() {
-    const {store} = this.props
-    const {classes} = this.props
+    const {store, classes} = this.props
 
     return (
       <React.Fragment>

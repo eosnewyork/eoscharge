@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
 import FlashOnIcon from '@material-ui/icons/FlashOn'
 import SdStorage from '@material-ui/icons/SdStorage'

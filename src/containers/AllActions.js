@@ -1,11 +1,10 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import Action from '../components/Action'
 import Grid from '@material-ui/core/Grid'
-import {inject, observer} from 'mobx-react'
+import { inject, observer } from 'mobx-react'
 import Button from '@material-ui/core/Button'
-import withStyles from '@material-ui/core/styles/withStyles';
+import withStyles from '@material-ui/core/styles/withStyles'
 import Typography from '@material-ui/core/Typography'
-
 
 const styles = theme => ({
   buttons: {
@@ -28,11 +27,11 @@ class AllActions extends Component {
     
   }
 
-  handleBack = foo => {
+  handleBack = () => {
     this.props.actionStore.prevPage()
   }
 
-  handleNext = foo => {
+  handleNext = () => {
     this.props.actionStore.nextPage()
   }
 

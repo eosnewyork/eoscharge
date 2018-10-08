@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import Typography from '@material-ui/core/Typography'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Utils from './Utils'
@@ -63,8 +63,6 @@ class Battery extends Component {
     const pct = Math.round(available / max * 100)
     const svgPath = this.createSvgPath(pct)
     const qty = Utils.formatQuantity(available, type)
-    
-    //let color = pct > 20 ? '#A4BDC3' : 'red'
     
     return ( 
       <div className={classes.wrapper}>

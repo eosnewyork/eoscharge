@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import FormControl from '@material-ui/core/FormControl'
 import SearchInput from './SearchInput'
 import InputLabel from '@material-ui/core/InputLabel'
-import {inject, observer} from 'mobx-react'
-import withStyles from '@material-ui/core/styles/withStyles';
+import { inject, observer } from 'mobx-react'
+import withStyles from '@material-ui/core/styles/withStyles'
 import Typography from '@material-ui/core/Typography'
 
 

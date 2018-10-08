@@ -1,26 +1,18 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import classNames from 'classnames'
-import AppBar from '@material-ui/core/AppBar'
 import Account from './Account'
-import FlashOnIcon from '@material-ui/icons/FlashOn'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
 import withStyles from '@material-ui/core/styles/withStyles'
 import ActionStore from "../stores/ActionStore"
 import AccountStore from "../stores/AccountStore"
 import PopularActions from './PopularActions'
 import AllActions from './AllActions'
 import AllActionsForm from './AllActionsForm'
-import {inject, observer, Provider} from 'mobx-react'
+import { inject, observer, Provider } from 'mobx-react'
+import Header from './Header'
+import Footer from './Footer'
 
 const styles = theme => ({
-  appBar: {
-    position: 'relative',
-  },
-  icon: {
-    marginRight: theme.spacing.unit * 2,
-  },
   heroUnit: {
     backgroundColor: theme.palette.background.paper,
   },
@@ -47,19 +39,7 @@ const styles = theme => ({
   },
   allCardGrid: {
     padding: `${theme.spacing.unit * 4}px 0`,
-  },
-  footer: {
-    padding: theme.spacing.unit * 6,
-    textAlign: 'center'
-  },
-  footerLogo: {
-    height: 60,
-    width: 60,
-    marginBottom: theme.spacing.unit * 2
-  },
-  disclaimer: {
-    marginTop: theme.spacing.unit * 2
-  },
+  }
 })
 
 class App extends Component {
@@ -73,27 +53,11 @@ class App extends Component {
     return (
       <React.Fragment>
       <CssBaseline />
-      <AppBar position="static" className={classes.appBar}>
-        <Toolbar>
-          <FlashOnIcon className={classes.icon} />
-          <Typography variant="title" color="inherit" noWrap>
-            EOS Charge
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <Header />
       <main>
-        {/* Hero unit */}
         <div className={classes.heroUnit}>
           <div className={classes.heroContent}>
-            <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
-              Take Charge of Your Account
-            </Typography>
-            <Typography variant="title" align="center" color="textSecondary" paragraph>
-              Enter your EOS Account below to recieve a custom report of how many actions you can perform on the EOS Mainnet
-            </Typography>
-            <div className={classes.heroButtons}>
-              <Account />              
-            </div>
+            <Account />            
           </div>
         </div>
         <div className={classNames(classes.layout, classes.popularCardGrid)}>
@@ -115,15 +79,7 @@ class App extends Component {
           </div>
         </div>
       </main>
-      <footer className={classes.footer} aligh="center">
-        <img className={classes.footerLogo} src="./images/EOS-NY_logo.svg" align="center" alt="EOS New York logo" />
-        <Typography variant="subheading" align="center" color="textSecondary">
-          Made with <span role="img" aria-label="heart" aria-labelledby="heart">❤️</span> by <a target="_blank" rel="noopener noreferrer" href="https://www.eosnewyork.io/">EOS New York</a>
-        </Typography>
-        <Typography className={classes.disclaimer} variant="body1" align="center" color="textSecondary">
-          DISCLAIMER: EOS Charge is based on <a target="_blank" rel="noopener noreferrer" href="https://www.eossnapshots.io/?prefix=data/eoscharge/">calculations</a> performed hourly on the last 100k blocks of the EOS Mainnet.
-        </Typography>
-      </footer>
+      <Footer />
     </React.Fragment>
     )
   }

@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import {inject, observer} from 'mobx-react'
+import React, { Component } from 'react'
+import { inject, observer } from 'mobx-react'
 import Grid from '@material-ui/core/Grid'
 import PopularAction from '../components/PopularAction'
 import Typography from '@material-ui/core/Typography'

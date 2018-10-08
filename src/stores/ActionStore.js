@@ -1,4 +1,4 @@
-import {observable, action, decorate, computed} from 'mobx'
+import { observable, action, decorate, computed } from 'mobx'
 
 class ActionStore {
   actions = []

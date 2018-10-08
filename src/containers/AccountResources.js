@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import Battery from '../components/Battery'
-import {inject, observer} from 'mobx-react'
-import withStyles from '@material-ui/core/styles/withStyles';
-import Grid from '@material-ui/core/Grid';
-import Collapse from '@material-ui/core/Collapse';
+import { inject, observer } from 'mobx-react'
+import withStyles from '@material-ui/core/styles/withStyles'
+import Grid from '@material-ui/core/Grid'
+import Collapse from '@material-ui/core/Collapse'
 
 
 const styles = theme => ({
