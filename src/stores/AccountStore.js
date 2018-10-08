@@ -42,6 +42,7 @@ class AccountStore {
 
   handleError = error => {
     this.setError(error)
+    console.log(error);
     this.setState('error')
     this.setAccount(defaultAccount)
     cookies.remove('account-name')
@@ -57,7 +58,9 @@ class AccountStore {
       .then(response => {
 
         if (response.status === 500) {
-          throw Error(`Account ${this.accountName} not found.`);
+          throw Error(`Account "${this.accountName}" not found.`);
+        } else if(!response.ok) {
+          throw Error('API call failed. Please try again.');
         }
         
         return response.json()
