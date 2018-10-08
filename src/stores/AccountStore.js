@@ -42,7 +42,6 @@ class AccountStore {
 
   handleError = error => {
     this.setError(error)
-    console.log(error);
     this.setState('error')
     this.setAccount(defaultAccount)
     cookies.remove('account-name')
