@@ -15,8 +15,10 @@ class AccountStore {
     this.account = defaultAccount
     this.state = 'init'
     this.error = null
-    this.accountName = cookies.get('account-name') || ""
+    this.accountName = cookies.get('account-name') || ""    
+  }
 
+  loadSavedAccount = () => {
     if(this.accountName.length > 0) {
       this.loadAccount()
     }

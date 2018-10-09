@@ -38,6 +38,10 @@ const styles = theme => ({
 })
 
 class AccountForm extends Component {
+  componentDidMount() {
+    this.props.store.loadSavedAccount()    
+  }
+
   handleSubmit = e => {
     e.preventDefault()
     this.props.store.loadAccount()

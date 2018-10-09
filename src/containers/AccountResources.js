@@ -14,10 +14,6 @@ const styles = theme => ({
 })
 
 class AccountResources extends Component {
-  componentWillReact() {
-    
-  }
-
   render() {
     const {store} = this.props
     const {classes} = this.props

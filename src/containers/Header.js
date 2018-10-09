@@ -46,7 +46,7 @@ class App extends Component {
         
           <Button variant="extendedFab" className={classes.button} href="https://www.eosnewyork.io/" target="_blank">
             <img className={classes.headerLogo} src="./images/EOS-NY_logo.svg" alt="EOS New York logo" />
-            <Typography variant="button" noWrap className={classes.buttonText}>
+            <Typography variant="subtitle" noWrap className={classes.buttonText}>
               EOS New York
             </Typography>
           </Button>

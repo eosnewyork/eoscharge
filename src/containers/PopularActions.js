@@ -13,8 +13,8 @@ const styles = theme => ({
 })
 
 class PopularActions extends Component {
-  componentWillReact() {
-    
+  componentDidMount() {
+    this.props.actionStore.loadActions()    
   }
 
   render() {
