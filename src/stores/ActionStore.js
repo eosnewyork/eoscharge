@@ -30,7 +30,31 @@ class ActionStore {
       title: 'Panda Fun', 
       subtitle: 'Pray',
       description: 'Using your <strong>$AVAIL_CPU</strong> worth of CPU, you are able to pray <strong>$COUNT</strong> times in the next 72 hours.'
-    }
+    },
+    'eosplaybrand:dicereveal': {
+      img: 'eosplay.png',
+      title: 'EOSPlay', 
+      subtitle: 'Dice Reveal',
+      description: 'Using your <strong>$AVAIL_CPU</strong> worth of CPU, you are able to reveal dice <strong>$COUNT</strong> times in the next 72 hours.'
+    },
+    'eosio:delegatebw': {
+      img: 'eos_logo.png',
+      title: 'EOSIO', 
+      subtitle: 'Delegate Bandwidth',
+      description: 'Using your <strong>$AVAIL_CPU</strong> worth of CPU, you are able to delegate bandwidth <strong>$COUNT</strong> times in the next 72 hours.'
+    },
+    'eosio.token:transfer': {
+      img: 'eos_logo.png',
+      title: 'EOSIO', 
+      subtitle: 'Transfer',
+      description: 'Using your <strong>$AVAIL_CPU</strong> worth of CPU, you are able to transfer <strong>$COUNT</strong> times in the next 72 hours.'
+    },
+    'betdicelucky:draw': {
+      img: 'betdice.png',
+      title: 'BetDice', 
+      subtitle: 'Draw',
+      description: 'Using your <strong>$AVAIL_CPU</strong> worth of CPU, you are able to draw <strong>$COUNT</strong> times in the next 72 hours.'
+    },
   }
   filter = ''
 
