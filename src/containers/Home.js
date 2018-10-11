@@ -56,7 +56,7 @@ class Home extends Component {
           </Provider>
         </div>
         
-        <div className={classes.heroUnit}>
+        <div className={classes.heroUnit} id="all-actions">
           <div className={classes.heroContent}>
             <Provider actionStore={ActionStore}>
               <AllActionsForm />

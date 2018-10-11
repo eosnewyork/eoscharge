@@ -23,7 +23,7 @@ class PopularActions extends Component {
     return (
       <React.Fragment>
         {actionStore.isLoaded &&
-        <div>  
+        <div id="popular-actions">
           
           <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
             Popular Actions
