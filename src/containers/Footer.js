@@ -34,9 +34,6 @@ class Footer extends Component {
         <Typography variant="subheading" align="center" color="textSecondary">
           Made with <span role="img" aria-label="heart" aria-labelledby="heart">❤️</span> by <a target="_blank" rel="noopener noreferrer" href="https://www.eosnewyork.io/">EOS New York</a>
         </Typography>
-        <Typography className={classes.disclaimer} variant="body1" align="center" color="textSecondary">
-          DISCLAIMER: EOS Charge is based on <a target="_blank" rel="noopener noreferrer" href="https://www.eossnapshots.io/?prefix=data/eoscharge/">calculations</a> performed hourly on the last 100k blocks of the EOS Mainnet.
-        </Typography>
       </footer>    
     )
   }
