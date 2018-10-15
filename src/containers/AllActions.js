@@ -20,7 +20,7 @@ const styles = theme => ({
 
 class AllActions extends Component {
   componentDidMount() {
-    this.props.actionStore.loadActions()    
+    
   }
 
   componentWillReact() {

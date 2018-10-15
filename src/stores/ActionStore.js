@@ -1,11 +1,15 @@
 import { observable, action, decorate, computed } from 'mobx'
+import queryString from 'query-string'
+import createHistory from "history/createBrowserHistory"
 
 class ActionStore {
+  history = createHistory()
   actions = []
   isLoaded = false
   blacklist = ['foobar']
   startIdx = 0
   pageSize = 20
+  filter = ''
   popContent = {
     'monstereosio:feedpet': {
       img: 'monster-105.png',
@@ -56,28 +60,45 @@ class ActionStore {
       description: 'Using your <strong>$AVAIL_CPU</strong> worth of CPU, you are able to draw <strong>$COUNT</strong> times in the next 72 hours.'
     },
   }
-  filter = ''
 
   loadActions = name => {
     const cachebust = (new Date()).getTime()
     fetch(`https://www.eossnapshots.io/data/eoscharge/latest.json?ts=${cachebust}`)
       .then(response => response.json())
-      .then(data => this.setActions(data))    
+      .then(data => this.setActions(data))
   }
 
   setActions = actions => {
     this.actions = actions.filter(agg => {
       return !this.blacklist.includes(agg._id.acct)
     }).map(action => {
-      const additionalProps = {'uniqueId': `${action._id.acct}:${action._id.name}` }
+      const additionalProps = { 'uniqueId': `${action._id.acct}:${action._id.name}` }
       return {...action, ...additionalProps}
     })
-    this.isLoaded = true;
+    this.isLoaded = true
+    this.setFilterFromQuery()
+  }
+
+  setFilterFromQuery = () => {
+    const query = queryString.parse(window.location.search)
+    if(query.filter && query.filter.length > 0) {
+      this.setFilter(query.filter)
+    } else if (this.filter.length > 0) {
+      this.setQueryString(this.filter)
+    }
+  }
+
+  setQueryString = filter => {
+    this.history.push({
+      pathname: "",
+      search: filter.length > 0 ? queryString.stringify({filter: filter}) : ''
+    })
   }
 
   setFilter = filter => {
     this.filter = filter.trim().toLowerCase()
     this.startIdx = 0
+    this.setQueryString(this.filter)
   }
 
   nextPage = () => {
