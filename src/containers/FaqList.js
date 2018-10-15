@@ -13,7 +13,7 @@ const styles = theme => ({
     justifyContent: 'center'
   },
   question: {
-    marginBottom: theme.spacing.unit * 3,
+    marginTop: theme.spacing.unit * 3,
     '& a': {
       color: theme.palette.primary.main,
       textDecoration: 'none',

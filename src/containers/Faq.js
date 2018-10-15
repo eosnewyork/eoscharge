@@ -3,6 +3,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import FaqStore from '../stores/FaqStore'
 import { Provider } from 'mobx-react'
 import FaqList from './FaqList'
+import Typography from '@material-ui/core/Typography'
 
 const styles = theme => ({
   heroUnit: {
@@ -29,6 +30,10 @@ class Faq extends Component {
       <div className={classes.heroUnit}>
         <div className={classes.layout}>
           
+            <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
+              Frequently Asked Questions
+            </Typography>
+
           <Provider store={FaqStore}>
             <FaqList />
           </Provider>

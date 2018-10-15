@@ -90,7 +90,7 @@ class ActionStore {
 
   setQueryString = filter => {
     this.history.push({
-      pathname: "",
+      pathname: "/",
       search: filter.length > 0 ? queryString.stringify({filter: filter}) : ''
     })
   }
