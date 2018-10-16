@@ -47,6 +47,7 @@ class Action extends Component {
         <Card className={classes.card}>
           <CardContent className={classes.cardContent}>
             <ActionText 
+              acctName={action._id.acct}
               title={action._id.acct} 
               subtitle={action._id.name} 
               topText={Utils.createTopMarkup(avgCpu, avgNet, action._id.name, action._id.acct)}
