@@ -25,7 +25,7 @@ class ActionText extends Component {
     return (
       <React.Fragment>
         <Typography variant="display1" color="textPrimary" className={classes.title}>
-          <a target="_blank" rel="noopener noreferrer" href="https://bloks.io/account/{acctName}">{title}</a>
+          <a target="_blank" rel="noopener noreferrer" href={`https://bloks.io/account/${acctName}`}>{title}</a>
         </Typography>
         <Typography variant="title" color="textSecondary">
           {subtitle}
