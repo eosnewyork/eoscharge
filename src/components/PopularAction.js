@@ -53,6 +53,7 @@ class PopularAction extends Component {
           />
           <CardContent className={classes.cardContent}>
             <ActionText 
+              acctName={action._id.acct}
               title={action.title} 
               subtitle={action.subtitle} 
               topText={Utils.createTopMarkup(avgCpu, avgNet, action.subtitle, action.title)}
