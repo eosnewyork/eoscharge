@@ -32,15 +32,12 @@ const styles = theme => ({
   }
 })
 
-const desc = 'Using your <strong>$AVAIL_CPU</strong> worth of CPU, you are able to perform this action <strong>$COUNT</strong> times in the next 72 hours.'
-
 class Action extends Component {
 
   render() {
     const {classes, action, availCpu} = this.props
     const count = Utils.computeCount(availCpu, action.avg_cpu_us)
     const badgeCount = Utils.badgeCount(count)
-    const cpu = Utils.formatQuantity(availCpu, 'cpu')
     const avgCpu = Utils.formatQuantity(action.avg_cpu_us, 'cpu')
     const avgNet = Utils.formatQuantity(action.avg_net_words, 'words')
     
@@ -52,7 +49,8 @@ class Action extends Component {
             <ActionText 
               title={action._id.acct} 
               subtitle={action._id.name} 
-              description={Utils.createMarkup(cpu, count, desc)} 
+              topText={Utils.createTopMarkup(avgCpu, avgNet, action._id.name, action._id.acct)}
+              bottomText={Utils.createBottomMarkup(action._id.name, count)} 
             />
           </CardContent>
           <ActionFooter avgCpu={avgCpu} avgNet={avgNet} />

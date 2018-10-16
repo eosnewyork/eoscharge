@@ -11,7 +11,7 @@ const styles = theme => ({
 class ActionText extends Component {
 
   render() {
-    const {title, subtitle, description, classes} = this.props
+    const {title, subtitle, topText, bottomText, classes} = this.props
     
     return (
       <React.Fragment>
@@ -21,7 +21,9 @@ class ActionText extends Component {
         <Typography variant="title" color="textSecondary">
           {subtitle}
         </Typography>
-        <Typography className={classes.description} variant="body1" dangerouslySetInnerHTML={description}>
+        <Typography className={classes.description} variant="body1" dangerouslySetInnerHTML={topText}>
+        </Typography>
+        <Typography className={classes.description} variant="body1" dangerouslySetInnerHTML={bottomText}>
         </Typography>
       </React.Fragment>
     )

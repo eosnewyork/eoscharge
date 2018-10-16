@@ -38,7 +38,6 @@ class PopularAction extends Component {
     const {classes, action, availCpu} = this.props
     const count = Utils.computeCount(availCpu, action.avg_cpu_us)
     const badgeCount = Utils.badgeCount(count)
-    const cpu = Utils.formatQuantity(availCpu, 'cpu')
     const avgCpu = Utils.formatQuantity(action.avg_cpu_us, 'cpu')
     const avgNet = Utils.formatQuantity(action.avg_net_words, 'words')
 
@@ -56,7 +55,8 @@ class PopularAction extends Component {
             <ActionText 
               title={action.title} 
               subtitle={action.subtitle} 
-              description={Utils.createMarkup(cpu, count, action.description)} 
+              topText={Utils.createTopMarkup(avgCpu, avgNet, action.subtitle, action.title)}
+              bottomText={Utils.createBottomMarkup(action.subtitle, count)}
             />
           </CardContent>
           <ActionFooter avgCpu={avgCpu} avgNet={avgNet} />

@@ -16,8 +16,13 @@ class Utils {
     }
   }
 
-  createMarkup = (cpu, count, desc) => {
-    const html = desc.replace('$AVAIL_CPU', cpu).replace('$COUNT', count.toLocaleString())
+  createTopMarkup = (avgCpu, avgNet, actionName, actionAcct) => {
+    const html = `It costs <b>${avgCpu}</b> of CPU and <b>${avgNet}</b> of NET to perform the <b>&lt;${actionName}&gt;</b> action on <b>${actionAcct}</b>.`
+    return {__html: html};
+  }
+
+  createBottomMarkup = (actionName, count) => {
+    const html = `Based on your account's staked resources, you can <b>&lt;${actionName}&gt;</b> ${count} times over the next 72 hours.`
     return {__html: html};
   }
 
