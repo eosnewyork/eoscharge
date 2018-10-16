@@ -10,7 +10,6 @@ export default class SearchInput extends Component {
     this.state = {
         value: props.value
     }
-    console.log(props.value)
   }
 
   componentWillMount() {
