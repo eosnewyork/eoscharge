@@ -11,6 +11,7 @@ import ActionFooter from './ActionFooter'
 const styles = theme => ({
   card: {
     height: '100%',
+    paddingTop: theme.spacing.unit,
     display: 'flex',
     flexDirection: 'column',
   },
