@@ -17,13 +17,13 @@ class Utils {
   }
 
   createTopMarkup = (avgCpu, avgNet, actionName, actionAcct) => {
-    const html = `It costs <b>${avgCpu}</b> of CPU and <b>${avgNet}</b> of NET to perform the <b>&lt;${actionName}&gt;</b> action on <b>${actionAcct}</b>.`
-    return {__html: html};
+    const html = `The <b>&lt;${actionName}&gt;</b> action on <b>${actionAcct}</b> costs <b>${avgCpu}</b> of CPU and <b>${avgNet}</b> of NET.`
+    return {__html: html}
   }
 
   createBottomMarkup = (actionName, count) => {
-    const html = `Based on your account's staked resources, you can <b>&lt;${actionName}&gt;</b> ${count} times over the next 72 hours.`
-    return {__html: html};
+    const html = `You can <b>&lt;${actionName}&gt; ${count} times</b> over the next 72 hours based on your account's staked resources.`
+    return {__html: html}
   }
 
   badgeCount = count => {
