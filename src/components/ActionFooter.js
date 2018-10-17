@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
-import FlashOnIcon from '@material-ui/icons/FlashOn'
-import SdStorage from '@material-ui/icons/SdStorage'
+import DeveloperBoardIcon from '@material-ui/icons/DeveloperBoard'
+import NetworkCheckIcon from '@material-ui/icons/NetworkCheck'
 import Typography from '@material-ui/core/Typography'
 import CardActions from '@material-ui/core/CardActions'
 
@@ -23,13 +23,13 @@ class ActionFooter extends Component {
     return (
       <CardActions className={classes.actions} disableActionSpacing>
         <div className={classes.stat}>
-          <FlashOnIcon />
+          <DeveloperBoardIcon />
           <Typography component="p">
             {avgCpu}
           </Typography>
         </div>
         <div className={classes.stat}>
-          <SdStorage />
+          <NetworkCheckIcon />
           <Typography component="p">
             {avgNet}
           </Typography>
