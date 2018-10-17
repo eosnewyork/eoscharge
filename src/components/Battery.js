@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Typography from '@material-ui/core/Typography'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Utils from './Utils'
-import FlashOnIcon from '@material-ui/icons/FlashOn'
-import SdStorage from '@material-ui/icons/SdStorage'
+import DeveloperBoardIcon from '@material-ui/icons/DeveloperBoard'
+import NetworkCheckIcon from '@material-ui/icons/NetworkCheck'
 
 const styles = theme => ({
   wrapper: {
@@ -67,7 +67,7 @@ class Battery extends Component {
     return ( 
       <div className={classes.wrapper}>
         <div className={classes.typeLabel}>
-          {this.props.type === 'net' ? <SdStorage /> : <FlashOnIcon />}                  
+          {this.props.type === 'net' ? <NetworkCheckIcon /> : <DeveloperBoardIcon />}                  
           <Typography variant="title" align="center">
             {this.props.type.toUpperCase()}
           </Typography>
