@@ -28,7 +28,7 @@ class ActionText extends Component {
           <a target="_blank" rel="noopener noreferrer" href={`https://bloks.io/account/${acctName}`}>{title}</a>
         </Typography>
         <Typography variant="title" color="textSecondary">
-          <{subtitle}>
+          {'<' + subtitle + '>'}
         </Typography>
         <Typography className={classes.description} variant="body1" dangerouslySetInnerHTML={topText}>
         </Typography>
