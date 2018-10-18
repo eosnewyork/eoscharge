@@ -75,7 +75,7 @@ class AllActions extends Component {
             
             : 
             
-            <Typography variant="title" align="center" color="textSecondary" paragraph>
+            <Typography variant="title" align="center" color="error" paragraph>
               No actions found containing "{actionStore.filter}"
             </Typography>
           }
