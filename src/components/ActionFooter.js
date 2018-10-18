@@ -11,7 +11,12 @@ const styles = theme => ({
     justifyContent: 'space-between'
   },
   stat: {
-    display: 'flex'
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    '& p': {
+      paddingLeft: theme.spacing.unit / 2
+    }
   }
 })
 

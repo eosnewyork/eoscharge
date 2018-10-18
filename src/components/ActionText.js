@@ -14,6 +14,9 @@ const styles = theme => ({
         textDecoration: 'underline'
       }
     }
+  },
+  subtitle: {
+    fontStyle: 'italic'
   }
 })
 
@@ -27,8 +30,8 @@ class ActionText extends Component {
         <Typography variant="display1" color="textPrimary" className={classes.title}>
           <a target="_blank" rel="noopener noreferrer" href={`https://bloks.io/account/${acctName}`}>{title}</a>
         </Typography>
-        <Typography variant="title" color="textSecondary">
-          {'<' + subtitle + '>'}
+        <Typography variant="title" color="textSecondary" className={classes.subtitle}>
+          {subtitle}
         </Typography>
         <Typography className={classes.description} variant="body1" dangerouslySetInnerHTML={topText}>
         </Typography>

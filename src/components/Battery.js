@@ -33,7 +33,10 @@ const styles = theme => ({
   },
   typeLabel: {
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    '& h2': {
+      paddingLeft: theme.spacing.unit / 2
+    }
   }
 })
 
@@ -68,7 +71,7 @@ class Battery extends Component {
       <div className={classes.wrapper}>
         <div className={classes.typeLabel}>
           {this.props.type === 'net' ? <NetworkCheckIcon /> : <DeveloperBoardIcon />}                  
-          <Typography variant="title" align="center">
+          <Typography variant="title" align="center" component="h2">
             {this.props.type.toUpperCase()}
           </Typography>
         </div>

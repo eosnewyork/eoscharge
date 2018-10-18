@@ -17,12 +17,12 @@ class Utils {
   }
 
   createTopMarkup = (avgCpu, avgNet, actionName, actionAcct) => {
-    const html = `The <b>&lt;${actionName}&gt;</b> action on <b>${actionAcct}</b> costs <b>${avgCpu}</b> of CPU and <b>${avgNet}</b> of NET.`
+    const html = `The <b><em>${actionName}</em></b> action on <b>${actionAcct}</b> costs <b>${avgCpu}</b> of CPU and <b>${avgNet}</b> of NET.`
     return {__html: html}
   }
 
   createBottomMarkup = (actionName, count) => {
-    const html = `You can <b>&lt;${actionName}&gt; ${count} times</b> over the next 72 hours based on your account's staked resources.`
+    const html = `You can <b><em>${actionName}</em> ${count} times</b> over the next 72 hours based on your account's staked resources.`
     return {__html: html}
   }
 
