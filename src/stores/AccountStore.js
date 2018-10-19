@@ -1,7 +1,4 @@
 import { observable, action, decorate } from 'mobx'
-import Cookies from 'universal-cookie'
-
-const cookies = new Cookies();
 
 const defaultAccount = {
   net_limit: {used: 100, available: 0, max: 100},
@@ -9,13 +6,15 @@ const defaultAccount = {
   total_resources: {net_weight: "0.0000 EOS", cpu_weight: "0.0000 EOS"}
 }
 
+const LS_ACCT_NAME_KEY = 'account-name'
+
 class AccountStore {
   
   constructor() {
     this.account = defaultAccount
     this.state = 'init'
     this.error = null
-    this.accountName = cookies.get('account-name') || ""    
+    this.accountName = localStorage.getItem(LS_ACCT_NAME_KEY) || ""    
   }
 
   loadSavedAccount = () => {
@@ -35,7 +34,7 @@ class AccountStore {
 
   setAccount = data => {
     this.account = data
-    cookies.set('account-name', this.accountName, { path: '/' })
+    localStorage.setItem(LS_ACCT_NAME_KEY, this.accountName)
   }
 
   setError = error => {
@@ -46,7 +45,7 @@ class AccountStore {
     this.setError(error)
     this.setState('error')
     this.setAccount(defaultAccount)
-    cookies.remove('account-name')
+    localStorage.removeItem(LS_ACCT_NAME_KEY)
   }
 
   loadAccount = name => {
