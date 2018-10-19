@@ -8,6 +8,7 @@ import PopularActions from './PopularActions'
 import AllActions from './AllActions'
 import AllActionsForm from './AllActionsForm'
 import { Provider } from 'mobx-react'
+import Questions from './Questions';
 
 const styles = theme => ({
   heroUnit: {
@@ -33,6 +34,7 @@ const styles = theme => ({
   },
   popularCardGrid: {
     padding: `${theme.spacing.unit * 8}px 0`,
+    marginTop: theme.spacing.unit * 6
   },
   allCardGrid: {
     padding: `${theme.spacing.unit * 4}px 0`,
@@ -47,9 +49,11 @@ class Home extends Component {
       <div>
         <div className={classes.heroUnit}>
           <div className={classes.heroContent}>
-            <Account />            
+            <Account />
+            <Questions />
           </div>
         </div>
+        
         <div className={classNames(classes.layout, classes.popularCardGrid)}>
           <Provider actionStore={ActionStore} acctStore={AccountStore}>
             <PopularActions />

@@ -32,7 +32,7 @@ class Footer extends Component {
     return (
       <footer className={classes.footer} aligh="center">
         <img className={classes.footerLogo} src="./images/EOS-NY_logo.svg" align="center" alt="EOS New York logo" />
-        <Typography variant="subheading" align="center" color="textSecondary">
+        <Typography variant="subheading" align="center" color="textSecondary" gutterBottom>
           Made with <span role="img" aria-label="heart" aria-labelledby="heart">❤️</span> by <a target="_blank" rel="noopener noreferrer" href="https://www.eosnewyork.io/">EOS New York</a>
         </Typography>
         <Typography>
