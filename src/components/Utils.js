@@ -12,7 +12,7 @@ class Utils {
       return Math.round(resource / 1024).toLocaleString() + ' KiB'
     }
     else if(type === 'words') {
-      return Math.round(resource / 8).toLocaleString() + ' Bytes'
+      return Math.round(resource * 8).toLocaleString() + ' Bytes'
     }
   }
 
