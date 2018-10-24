@@ -27,7 +27,7 @@ class Account extends Component {
           {t('take_charge')}
         </Typography>
         <Typography variant="title" align="center" color="textSecondary" paragraph>
-          Enter your EOS Account below to recieve a custom report of how many actions you can perform on the EOS Mainnet
+          Enter your EOS Account below to receive a custom report of how many actions you can perform on the EOS Mainnet
         </Typography>
         <div className={classes.heroButtons}>
           <Provider store={AccountStore}>
