@@ -14,7 +14,10 @@ class FaqStore {
   }
 
   setFaqs = data => {
-    this.faqs = data.objects
+    const faqs = data.objects.filter(faq => {
+      return faq.locale === 'en' //TODO: need to make work with i18next
+    })
+    this.faqs = faqs
   }
 
   setError = error => {
@@ -29,7 +32,7 @@ class FaqStore {
   loadFaqs = name => {
     this.setState('pending')
     
-    fetch('https://api.cosmicjs.com/v1/eoschargeio/object-type/faqs', {
+    fetch('https://api.cosmicjs.com/v1/eosnewyork/object-type/eoscharge-faqs', {
       method: 'get'
     })
       .then(response => {
