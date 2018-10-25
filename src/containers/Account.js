@@ -24,7 +24,7 @@ class Account extends Component {
     return (
       <div className={classes.acctWrapper}>
         <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
-          {t('take_charge')}
+          {t('Take Charge of Your Account')}
         </Typography>
         <Typography variant="title" align="center" color="textSecondary" paragraph>
           Enter your EOS Account below to receive a custom report of how many actions you can perform on the EOS Mainnet

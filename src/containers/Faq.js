@@ -4,14 +4,17 @@ import { Provider } from 'mobx-react'
 import FaqList from './FaqList'
 import Typography from '@material-ui/core/Typography'
 import Page from './Page'
+import { withNamespaces } from 'react-i18next'
 
 class Faq extends Component {
   render() {
+    const {t} = this.props
+    
     return (      
       <Page>
           
         <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
-          Frequently Asked Questions
+          {t('Frequently Asked Questions')}
         </Typography>
 
         <Provider store={FaqStore}>
@@ -23,4 +26,4 @@ class Faq extends Component {
   }
 }
 
-export default Faq
+export default withNamespaces()(Faq)

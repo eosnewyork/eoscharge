@@ -71,13 +71,13 @@ class HeaderNavMenu extends Component {
             >
               <Paper>
                 <ClickAwayListener onClickAway={this.handleClose}>
-                  <MenuList>
+                  <MenuList onClick={this.handleClose}> 
                     
-                      <MenuItem onClick={this.handleClose} selected={lng === 'en'}>
-                        <ListItemText classes={{ primary: classes.primary }} primary="English (EN)" onClick={() => this.changeLanguage('en')} />
+                      <MenuItem onClick={() => this.changeLanguage('en')} selected={lng === 'en'}>
+                        <ListItemText classes={{ primary: classes.primary }} primary="English (EN)" />
                       </MenuItem>
-                      <MenuItem onClick={this.handleClose} selected={lng === 'zh'}>
-                        <ListItemText classes={{ primary: classes.primary }} primary="Chinese (ZH)" onClick={() => this.changeLanguage('zh')}/>
+                      <MenuItem onClick={() => this.changeLanguage('zh')} selected={lng === 'zh'}>
+                        <ListItemText classes={{ primary: classes.primary }} primary="Chinese (ZH)" />
                       </MenuItem>
                     
                   </MenuList>

@@ -6,6 +6,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import Button from '@material-ui/core/Button'
 import HeaderNavMenu from './HeaderNavMenu';
 import HeaderLangMenu from './HeaderLangMenu';
+import { Link } from 'react-router-dom'
 
 const styles = theme => ({
   appBar: {
@@ -18,7 +19,14 @@ const styles = theme => ({
     marginRight: theme.spacing.unit * 2,
   },
   title: {
-    flexGrow: 1
+    flexGrow: 1,
+    '& a': {
+      color: theme.palette.primary.contrastText,
+      textDecoration: 'none',
+      '&:hover': {
+        textDecoration: 'underline'
+      }
+    }
   },
   button: {
     backgroundColor: theme.palette.background.default,
@@ -30,10 +38,6 @@ const styles = theme => ({
   },
   headerLogo: {
     height: theme.spacing.unit * 4
-  },
-  linkStyle: {
-    textDecoration: 'none',
-    display: 'block'
   }
 })
 
@@ -46,9 +50,9 @@ class Header extends Component {
       <AppBar position="static" className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
           <HeaderNavMenu />
-
+          
           <Typography variant="title" color="inherit" noWrap className={classes.title}>
-            EOS Charge
+            <Link to="/">EOS Charge</Link>
           </Typography>
 
           <HeaderLangMenu />

@@ -1,4 +1,5 @@
-import { observable, action, decorate } from 'mobx'
+import { observable, action, decorate, computed } from 'mobx'
+import i18n from '../i18n'
 
 class FaqStore {
   
@@ -6,7 +7,15 @@ class FaqStore {
     this.faqs = []
     this.state = 'init'
     this.error = null
-    
+    this.lng = i18n.language
+
+    i18n.on('languageChanged', lng => {
+      this.setLng(lng)
+    })
+  }
+
+  setLng = lng => {
+    this.lng = lng
   }
 
   setState = state => {
@@ -14,10 +23,15 @@ class FaqStore {
   }
 
   setFaqs = data => {
-    const faqs = data.objects.filter(faq => {
-      return faq.locale === 'en' //TODO: need to make work with i18next
+    this.faqs = data.objects
+  }
+
+  get localizedFaqs() {
+    const faqs = this.faqs.filter(faq => {
+      return faq.slug.split('-')[0] === this.lng
     })
-    this.faqs = faqs
+    
+    return faqs
   }
 
   setError = error => {
@@ -52,9 +66,12 @@ class FaqStore {
 decorate(FaqStore, {
   state: observable,
   faqs: observable,
+  lng: observable,
+  localizedFaqs: computed,
   error: observable,
   setFaqs: action,
   setState: action,
+  setLng: action,
   setError: action
 })
 
