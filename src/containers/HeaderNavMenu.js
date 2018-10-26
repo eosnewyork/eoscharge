@@ -10,6 +10,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import MenuIcon from '@material-ui/icons/Menu'
 import HomeIcon from '@material-ui/icons/Home'
+import LinkIcon from '@material-ui/icons/Link'
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer'
 import IconButton from '@material-ui/core/IconButton'
 import { Link } from 'react-router-dom'
@@ -83,6 +84,14 @@ class HeaderNavMenu extends Component {
                           <QuestionAnswerIcon />
                         </ListItemIcon>
                         <ListItemText classes={{ primary: classes.primary }} inset primary="FAQ" />
+                      </MenuItem>
+                    </Link>
+                    <Link to="/links" className={classes.linkStyle}>
+                      <MenuItem onClick={this.handleClose}>
+                        <ListItemIcon className={classes.icon}>
+                          <LinkIcon />
+                        </ListItemIcon>
+                        <ListItemText classes={{ primary: classes.primary }} inset primary="Helpful Links" />
                       </MenuItem>
                     </Link>
                   </MenuList>

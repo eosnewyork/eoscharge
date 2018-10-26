@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Button from '@material-ui/core/Button'
 import HeaderNavMenu from './HeaderNavMenu';
-import HeaderLangMenu from './HeaderLangMenu';
+//import HeaderLangMenu from './HeaderLangMenu';
 import { Link } from 'react-router-dom'
 
 const styles = theme => ({
@@ -34,7 +34,10 @@ const styles = theme => ({
   buttonText: {
     marginLeft: theme.spacing.unit,
     color: theme.palette.primary.main,
-    fontWeight: 700
+    fontWeight: 700,
+    [theme.breakpoints.down('xs')]: {
+      display: 'none'
+    },
   },
   headerLogo: {
     height: theme.spacing.unit * 4
@@ -55,7 +58,9 @@ class Header extends Component {
             <Link to="/">EOS Charge</Link>
           </Typography>
 
+          {/*
           <HeaderLangMenu />
+          */}
 
           <Button variant="extendedFab" className={classes.button} href="https://www.eosnewyork.io/" target="_blank">
             <img className={classes.headerLogo} src="./images/EOS-NY_logo.svg" alt="EOS New York logo" />

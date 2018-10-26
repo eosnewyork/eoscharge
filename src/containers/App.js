@@ -5,6 +5,7 @@ import Footer from './Footer'
 import Home from './Home'
 import Faq from './Faq'
 import Disclaimer from './Disclaimer'
+import Links from './Links'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { Route } from 'react-router-dom'
 
@@ -45,6 +46,7 @@ class App extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/faq" component={Faq} />
           <Route path="/disclaimer" component={Disclaimer} />
+          <Route path="/links" component={Links} />
         </main>
         <Footer />      
       </MuiThemeProvider>
