@@ -42,7 +42,7 @@ class FaqList extends Component {
 
       {['done'].includes(store.state) && store.faqs.length > 0 &&
         <div>
-        {store.faqs.map((faq, i) => (
+        {store.localizedFaqs.map((faq, i) => (
           <div key={faq._id} className={classes.question}>
             <Typography variant="display1" gutterBottom>
               {`Q${i+1}. `}{faq.metadata.question}

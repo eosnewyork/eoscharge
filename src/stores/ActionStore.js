@@ -17,11 +17,10 @@ class ActionStore {
       subtitle: 'Feed Pet',
       description: 'Using your <strong>$AVAIL_CPU</strong> worth of CPU, you are able to feed your pet <strong>$COUNT</strong> times in the next 72 hours.'
     },
-    'eosbetdice11:resolvebet': {
-      img: 'eosbet-logo-textside-azure.png',
-      title: 'EOSBET', 
-      subtitle: 'Resolve Bet',
-      description: 'Using your <strong>$AVAIL_CPU</strong> worth of CPU, you are able to resolve <strong>$COUNT</strong> bets in the next 72 hours.'
+    'eosluckydice:luck': {
+      img: 'eoswin.jpg',
+      title: 'EOS.WIN', 
+      subtitle: 'Lucky Draw'
     },
     'eosknightsio:sellmat2': {
       img: 'f1.png',

@@ -5,6 +5,7 @@ import AccountForm from './AccountForm'
 import AccountResources from './AccountResources'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Typography from '@material-ui/core/Typography'
+import { withNamespaces } from 'react-i18next'
 
 const styles = theme => ({
   heroButtons: {
@@ -18,12 +19,12 @@ const styles = theme => ({
 class Account extends Component {  
 
   render() {
-    const {classes} = this.props
+    const {classes, t} = this.props
 
     return (
       <div className={classes.acctWrapper}>
         <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
-          Take Charge of Your Account
+          {t('Take Charge of Your Account')}
         </Typography>
         <Typography variant="title" align="center" color="textSecondary" paragraph>
           Enter your EOS Account below to receive a custom report of how many actions you can perform on the EOS Mainnet
@@ -41,4 +42,4 @@ class Account extends Component {
   }
 }
 
-export default withStyles(styles)(Account)
+export default withNamespaces()(withStyles(styles)(Account))
