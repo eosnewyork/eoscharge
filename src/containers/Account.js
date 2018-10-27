@@ -24,10 +24,10 @@ class Account extends Component {
     return (
       <div className={classes.acctWrapper}>
         <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
-          {t('Take Charge of Your Account')}
+          {t('TAKE_CHARGE')}
         </Typography>
         <Typography variant="title" align="center" color="textSecondary" paragraph>
-          Enter your EOS Account below to receive a custom report of how many actions you can perform on the EOS Mainnet
+          {t('ENTER_YOUR_ACCOUNT')}
         </Typography>
         <div className={classes.heroButtons}>
           <Provider store={AccountStore}>
@@ -42,4 +42,9 @@ class Account extends Component {
   }
 }
 
-export default withNamespaces()(withStyles(styles)(Account))
+export default 
+withNamespaces()(
+  withStyles(styles)(
+    Account
+  )
+)

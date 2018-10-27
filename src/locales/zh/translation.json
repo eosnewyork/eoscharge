@@ -1,4 +1,21 @@
 {
-  "Take Charge of Your Account": "Take Charge of Your Account",
-  "Frequently Asked Questions": "Frequently Asked Questions"
-}
+  "TAKE_CHARGE": "负责您的帐户",
+  "FREQ_ASKED_QUES": "经常问的问题",
+  "ENTER_YOUR_ACCOUNT": "在下面输入您的EOS帐户，以接收您可以在EOS主网上执行的操作的自定义报告",
+  "EOS_ACCT_NAME": "EOS帐户名称",
+  "API_CALL_FAILED": "API调用失败。请再试一次。",
+  "ACCT_NOT_FOUND": "未找到帐户“{{acct_name}}”。",
+  "EOS_CHARGE": "EOS费用",
+  "HOME": "家",
+  "FAQ": "常问问题",
+  "HELPFUL_LINKS": "有用的网址",
+  "ENGLISH": "英语（EN）",
+  "CHINESE": "中文（ZH）",
+  "EOS_NEW_YORK": "EOS纽约",
+  "QUESTIONS": "有问题吗？",
+  "WATCH_VIDEO": "观看视频",
+  "READ_FAQ": "阅读常见问题",
+  "CLOSE": "关",
+  "POPULAR_ACTIONS": "热门行动",
+  "DISCLAIMER": "放弃"
+} 

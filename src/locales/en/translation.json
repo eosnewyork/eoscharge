@@ -1,4 +1,21 @@
 {
-  "Take Charge of Your Account": "Take Charge of Your Account",
-  "Frequently Asked Questions": "Frequently Asked Questions"
+  "TAKE_CHARGE": "Take Charge of Your Account",
+  "FREQ_ASKED_QUES": "Frequently Asked Questions",
+  "ENTER_YOUR_ACCOUNT": "Enter your EOS Account below to receive a custom report of how many actions you can perform on the EOS Mainnet",
+  "EOS_ACCT_NAME": "EOS Account Name",
+  "API_CALL_FAILED": "API call failed. Please try again.",
+  "ACCT_NOT_FOUND": "Account '{{acct_name}}' not found.",
+  "EOS_CHARGE": "EOS Charge",
+  "HOME": "Home",
+  "FAQ": "FAQ",
+  "HELPFUL_LINKS": "Helpful Links",
+  "ENGLISH": "English (EN)",
+  "CHINESE": "Chinese (ZH)",
+  "EOS_NEW_YORK": "EOS New York",
+  "QUESTIONS": "Questions?",
+  "WATCH_VIDEO": "Watch the video",
+  "READ_FAQ": "Read the FAQ",
+  "CLOSE": "Close",
+  "POPULAR_ACTIONS": "Popular Actions",
+  "DISCLAIMER": "Disclaimer"
 }

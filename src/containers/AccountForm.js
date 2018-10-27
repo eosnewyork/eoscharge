@@ -10,6 +10,7 @@ import InputLabel from '@material-ui/core/InputLabel'
 import CheckIcon from '@material-ui/icons/Check'
 import SearchIcon from '@material-ui/icons/Search'
 import PriorityHighIcon from '@material-ui/icons/PriorityHigh'
+import { withNamespaces } from 'react-i18next'
 
 const styles = theme => ({
   button: {
@@ -52,14 +53,14 @@ class AccountForm extends Component {
   }
 
   render() {
-    const {store, classes} = this.props
+    const {store, classes, t} = this.props
 
     return (
       <React.Fragment>
         <form className={classes.form} onSubmit={e => this.handleSubmit(e)}>
           <div className={classes.formInputs}>
             <FormControl margin="none" required fullWidth>
-              <InputLabel htmlFor="acct_name">EOS Account Name</InputLabel>
+              <InputLabel htmlFor="acct_name">{t('EOS_ACCT_NAME')}</InputLabel>
               <Input id="acct_name" 
                       value={store.accountName}
                       placeholder="Ex: eosnewyorkio" 
@@ -87,4 +88,13 @@ class AccountForm extends Component {
   }
 }
 
-export default inject('store')(withStyles(styles)(observer(AccountForm)))
+export default 
+withNamespaces()(
+  inject('store')(
+    withStyles(styles)(
+      observer(
+        AccountForm
+      )
+    )
+  )
+)

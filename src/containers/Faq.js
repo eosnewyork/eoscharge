@@ -14,7 +14,7 @@ class Faq extends Component {
       <Page>
           
         <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
-          {t('Frequently Asked Questions')}
+          {t('FREQ_ASKED_QUES')}
         </Typography>
 
         <Provider store={FaqStore}>

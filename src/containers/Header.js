@@ -4,9 +4,10 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Button from '@material-ui/core/Button'
-import HeaderNavMenu from './HeaderNavMenu';
-//import HeaderLangMenu from './HeaderLangMenu';
+import HeaderNavMenu from './HeaderNavMenu'
+import HeaderLangMenu from './HeaderLangMenu'
 import { Link } from 'react-router-dom'
+import { withNamespaces } from 'react-i18next'
 
 const styles = theme => ({
   appBar: {
@@ -47,7 +48,7 @@ const styles = theme => ({
 class Header extends Component {
 
   render() {
-    const { classes } = this.props
+    const { classes, t } = this.props
     
     return (
       <AppBar position="static" className={classes.appBar}>
@@ -55,17 +56,15 @@ class Header extends Component {
           <HeaderNavMenu />
           
           <Typography variant="title" color="inherit" noWrap className={classes.title}>
-            <Link to="/">EOS Charge</Link>
+            <Link to="/">{t('EOS_CHARGE')}</Link>
           </Typography>
 
-          {/*
           <HeaderLangMenu />
-          */}
 
           <Button variant="extendedFab" className={classes.button} href="https://www.eosnewyork.io/" target="_blank">
             <img className={classes.headerLogo} src="./images/EOS-NY_logo.svg" alt="EOS New York logo" />
             <Typography variant="subheading" noWrap className={classes.buttonText}>
-              EOS New York
+              {t('EOS_NEW_YORK')}
             </Typography>
           </Button>
         </Toolbar>
@@ -74,4 +73,9 @@ class Header extends Component {
   }
 }
 
-export default withStyles(styles)(Header)
+export default 
+withNamespaces()(
+  withStyles(styles)(
+    Header
+  )
+)
