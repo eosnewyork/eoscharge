@@ -1,7 +1,7 @@
 class Utils {
 
   computeCount = (avail, cost) => {
-    return Math.round(avail/cost)
+    return Math.floor(avail/cost)
   }
 
   formatQuantity = (resource, type) => {
