@@ -1,3 +1,5 @@
+import i18n from '../i18n'
+
 class Utils {
 
   computeCount = (avail, cost) => {
@@ -17,12 +19,12 @@ class Utils {
   }
 
   createTopMarkup = (avgCpu, avgNet, actionName, actionAcct) => {
-    const html = `The <b><em>${actionName}</em></b> action on <b>${actionAcct}</b> costs <b>${avgCpu}</b> of CPU and <b>${avgNet}</b> of NET.`
+    const html = i18n.t('ACTION_TOP', { actionName: actionName, actionAcct: actionAcct, avgCpu: avgCpu, avgNet: avgNet})
     return {__html: html}
   }
 
   createBottomMarkup = (actionName, count) => {
-    const html = `You can <b><em>${actionName}</em> ${count} times</b> over the next 72 hours based on your account's staked resources.`
+    const html = i18n.t('ACTION_BOTTOM', { actionName: actionName, count: count})
     return {__html: html}
   }
 

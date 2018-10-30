@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Typography from '@material-ui/core/Typography'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Page from './Page'
+import { withNamespaces } from 'react-i18next'
 
 const styles = theme => ({
   link: {
@@ -25,14 +26,14 @@ const links = [
   { url: 'https://eoslaomao.com/bankofstaked', name: 'Bank of Staked' },
 ]
 
-class Disclaimer extends Component {
+class Links extends Component {
   render() {
-    const { classes } = this.props
+    const { classes, t } = this.props
 
     return (      
       <Page>
         <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
-          Helpful Links
+          {t('HELPFUL_LINKS')}
         </Typography>
 
         
@@ -43,7 +44,7 @@ class Disclaimer extends Component {
         ))}
 
         <Typography variant="body1" color="textPrimary" className={classes.disclaimer}>
-          When visiting websites outside of EOS Charge, we cannot guarantee safety or validity of who they represent. Please exercise caution and be dilligent with the security of your account keys and information. Only share information with websites that you have validated for yourself.
+          {t('LINKS_DISCLAIMER')}
         </Typography>
 
       </Page>    
@@ -51,4 +52,9 @@ class Disclaimer extends Component {
   }
 }
 
-export default withStyles(styles)(Disclaimer)
+export default 
+withNamespaces()(
+  withStyles(styles)(
+    Links
+  )
+)

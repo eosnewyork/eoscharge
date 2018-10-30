@@ -59,7 +59,7 @@ class AccountStore {
       .then(response => {
 
         if (response.status === 500) {
-          throw Error(i18n.t('ACCT_NOT_FOUND', { acct_name: this.accountName}));
+          throw Error(i18n.t('ACCT_NOT_FOUND', { acctName: this.accountName}));
         } else if(!response.ok) {
           throw Error(i18n.t('API_CALL_FAILED'));
         }

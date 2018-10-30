@@ -5,6 +5,7 @@ import { inject, observer } from 'mobx-react'
 import Button from '@material-ui/core/Button'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Typography from '@material-ui/core/Typography'
+import { withNamespaces } from 'react-i18next'
 
 const styles = theme => ({
   buttons: {
@@ -36,7 +37,7 @@ class AllActions extends Component {
   }
 
   render() {
-    const {actionStore, acctStore, classes} = this.props
+    const {actionStore, acctStore, classes, t} = this.props
     
     return (
       <React.Fragment>
@@ -55,12 +56,12 @@ class AllActions extends Component {
 
             <div className={classes.buttons}>
               <Typography variant="body1" color="textSecondary">
-                {actionStore.startIdx + 1} - {actionStore.endIdx} of {actionStore.sortedList.length}
+                {actionStore.startIdx + 1} - {actionStore.endIdx} {t('OF')} {actionStore.sortedList.length}
               </Typography>
 
               <div>
               <Button disabled={actionStore.startIdx === 0} onClick={this.handleBack} className={classes.button}>
-                Back
+                {t('BACK')}
               </Button>
             
               <Button disabled={actionStore.endIdx === actionStore.sortedList.length}
@@ -68,7 +69,7 @@ class AllActions extends Component {
                 color="primary"
                 onClick={this.handleNext}
                 className={classes.button}>
-                Next
+                {t('NEXT')}
               </Button>
               </div>
             </div>
@@ -76,7 +77,7 @@ class AllActions extends Component {
             : 
             
             <Typography variant="title" align="center" color="error" paragraph>
-              No actions found containing "{actionStore.filter}"
+              {t('NO_ACTIONS_FOUND', {actionFilter: actionStore.filter})}
             </Typography>
           }
         
@@ -86,4 +87,13 @@ class AllActions extends Component {
   }
 }
 
-export default inject('actionStore', 'acctStore')(withStyles(styles)(observer(AllActions)))
+export default 
+withNamespaces()(
+  inject('actionStore', 'acctStore')(
+    withStyles(styles)(
+      observer(
+        AllActions
+      )
+    )
+  )
+)

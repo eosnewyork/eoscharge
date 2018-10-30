@@ -5,7 +5,7 @@ import InputLabel from '@material-ui/core/InputLabel'
 import { inject, observer } from 'mobx-react'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Typography from '@material-ui/core/Typography'
-
+import { withNamespaces } from 'react-i18next'
 
 const styles = theme => ({
   form: {
@@ -22,7 +22,7 @@ class AllActionsForm extends Component {
   }
 
   render() {
-    const {actionStore, classes} = this.props
+    const {actionStore, classes, t} = this.props
     
     return (
       <React.Fragment>
@@ -30,15 +30,15 @@ class AllActionsForm extends Component {
         <div>  
           
           <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
-            Action Search
+            {t('ACTION_SEARCH')}
           </Typography>
           <Typography variant="title" align="center" color="textSecondary" paragraph>
-            Type a dApp account name or action name below to filter the list of actions
+            {t('TYPE_DAPP_ACCT_NAME')}
           </Typography>
 
           <div className={classes.form}>
             <FormControl margin="none" required fullWidth>
-              <InputLabel htmlFor="filter">Search</InputLabel>
+              <InputLabel htmlFor="filter">{t('SEARCH')}</InputLabel>
               <SearchInput id="filter" 
                       value={actionStore.filter}
                       placeholder="Ex: eosio"
@@ -51,4 +51,13 @@ class AllActionsForm extends Component {
   }
 }
 
-export default inject('actionStore')(withStyles(styles)(observer(AllActionsForm)))
+export default 
+withNamespaces()(
+  inject('actionStore')(
+    withStyles(styles)(
+      observer(
+        AllActionsForm
+      )
+    )
+  )
+)
