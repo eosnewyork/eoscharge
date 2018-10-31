@@ -1,4 +1,5 @@
 import { observable, action, decorate } from 'mobx'
+import i18n from '../i18n'
 
 const defaultAccount = {
   net_limit: {used: 100, available: 0, max: 100},
@@ -58,9 +59,9 @@ class AccountStore {
       .then(response => {
 
         if (response.status === 500) {
-          throw Error(`Account "${this.accountName}" not found.`);
+          throw Error(i18n.t('ACCT_NOT_FOUND', { acctName: this.accountName}));
         } else if(!response.ok) {
-          throw Error('API call failed. Please try again.');
+          throw Error(i18n.t('API_CALL_FAILED'));
         }
         
         return response.json()

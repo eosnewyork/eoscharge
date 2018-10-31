@@ -10,6 +10,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import LanguageIcon from '@material-ui/icons/Language'
 import IconButton from '@material-ui/core/IconButton'
 import i18n from '../i18n'
+import { withNamespaces } from 'react-i18next'
 
 const styles = theme => ({
   icon: {
@@ -21,7 +22,7 @@ const styles = theme => ({
   }
 })
 
-class HeaderNavMenu extends Component {
+class HeaderLangMenu extends Component {
   state = {
     open: false,
     lng: i18n.language
@@ -45,7 +46,7 @@ class HeaderNavMenu extends Component {
   }
 
   render() {
-    const { classes } = this.props
+    const { classes, t } = this.props
     const { open, lng } = this.state
     
     return (
@@ -74,10 +75,10 @@ class HeaderNavMenu extends Component {
                   <MenuList onClick={this.handleClose}> 
                     
                       <MenuItem onClick={() => this.changeLanguage('en')} selected={lng === 'en'}>
-                        <ListItemText classes={{ primary: classes.primary }} primary="English (EN)" />
+                        <ListItemText classes={{ primary: classes.primary }} primary={t('ENGLISH')} />
                       </MenuItem>
                       <MenuItem onClick={() => this.changeLanguage('zh')} selected={lng === 'zh'}>
-                        <ListItemText classes={{ primary: classes.primary }} primary="Chinese (ZH)" />
+                        <ListItemText classes={{ primary: classes.primary }} primary={t('CHINESE')} />
                       </MenuItem>
                     
                   </MenuList>
@@ -91,4 +92,9 @@ class HeaderNavMenu extends Component {
   }
 }
 
-export default withStyles(styles)(HeaderNavMenu)
+export default 
+withNamespaces()(
+  withStyles(styles)(
+    HeaderLangMenu
+  )
+)

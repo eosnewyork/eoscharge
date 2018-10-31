@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Typography from '@material-ui/core/Typography'
 import withStyles from '@material-ui/core/styles/withStyles'
 import { Link } from 'react-router-dom'
+import { withNamespaces } from 'react-i18next'
 
 const styles = theme => ({
   footer: {
@@ -27,20 +28,23 @@ const styles = theme => ({
 
 class Footer extends Component {
   render() {
-    const {classes} = this.props
+    const {classes, t} = this.props
     
     return (
       <footer className={classes.footer} aligh="center">
         <img className={classes.footerLogo} src="./images/EOS-NY_logo.svg" align="center" alt="EOS New York logo" />
-        <Typography variant="subheading" align="center" color="textSecondary" gutterBottom>
-          Made with <span role="img" aria-label="heart" aria-labelledby="heart">❤️</span> by <a target="_blank" rel="noopener noreferrer" href="https://www.eosnewyork.io/">EOS New York</a>
-        </Typography>
+        <Typography variant="subheading" align="center" color="textSecondary" gutterBottom dangerouslySetInnerHTML={{__html: t('MADE_WITH_LOVE')}}></Typography>
         <Typography>
-          <Link to="/disclaimer">Disclaimer</Link>
+          <Link to="/disclaimer">{t('DISCLAIMER')}</Link>
         </Typography>
       </footer>    
     )
   }
 }
 
-export default withStyles(styles)(Footer)
+export default 
+withNamespaces()(
+  withStyles(styles)(
+    Footer
+  )
+)

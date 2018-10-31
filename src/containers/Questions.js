@@ -9,6 +9,7 @@ import CardContent from '@material-ui/core/CardContent'
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
+import { withNamespaces } from 'react-i18next'
 
 const styles = theme => ({
   questionCardWrapper: {
@@ -54,7 +55,7 @@ class Questions extends Component {
   }
 
   render() {
-    const {classes} = this.props
+    const {classes, t} = this.props
     
     return (
       <div>
@@ -62,18 +63,20 @@ class Questions extends Component {
           <Card className={classes.questionCard} elevation={8}>
             <CardContent> 
               <Typography variant="display2" align="center" color="textPrimary" gutterBottom>
-                Questions?
+                {t('QUESTIONS')}
               </Typography>
               <Grid container spacing={16} justify="center">
                 <Grid item>
                   <Button variant="contained" color="primary" onClick={this.handleClickOpen}>
-                    Watch the video
+                    {t('WATCH_VIDEO')}
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button variant="outlined" color="primary">
-                    <Link to="/faq">Read the FAQ</Link>
-                  </Button>
+                  <Link to="/faq">
+                    <Button variant="outlined" color="primary">
+                      {t('READ_FAQ')}
+                    </Button>
+                  </Link>
                 </Grid>
               </Grid>
             </CardContent>
@@ -89,7 +92,7 @@ class Questions extends Component {
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
-              Close
+              {t('CLOSE')}
             </Button>
           </DialogActions>
         </Dialog>
@@ -98,4 +101,9 @@ class Questions extends Component {
   }
 }
 
-export default withStyles(styles)(Questions)
+export default 
+withNamespaces()(
+  withStyles(styles)(
+    Questions
+  )
+)

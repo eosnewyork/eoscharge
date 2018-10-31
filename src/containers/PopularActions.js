@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid'
 import PopularAction from '../components/PopularAction'
 import Typography from '@material-ui/core/Typography'
 import withStyles from '@material-ui/core/styles/withStyles'
+import { withNamespaces } from 'react-i18next'
 
 const styles = theme => ({
   
@@ -18,7 +19,7 @@ class PopularActions extends Component {
   }
 
   render() {
-    const {actionStore, acctStore, classes} = this.props
+    const {actionStore, acctStore, classes, t} = this.props
 
     return (
       <React.Fragment>
@@ -26,7 +27,7 @@ class PopularActions extends Component {
         <div id="popular-actions">
           
           <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
-            Popular Actions
+            {t('POPULAR_ACTIONS')}
           </Typography>
 
           <Grid container spacing={40} className={classes.heroButtons}>
@@ -43,4 +44,13 @@ class PopularActions extends Component {
   }
 }
 
-export default inject('actionStore', 'acctStore')(withStyles(styles)(observer(PopularActions)))
+export default 
+withNamespaces()(
+  inject('actionStore', 'acctStore')(
+    withStyles(styles)(
+      observer(
+        PopularActions
+      )
+    )
+  )
+)

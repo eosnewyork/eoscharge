@@ -1,4 +1,36 @@
 {
-  "Take Charge of Your Account": "Take Charge of Your Account",
-  "Frequently Asked Questions": "Frequently Asked Questions"
+  "TAKE_CHARGE": "Take Charge of Your Account",
+  "FREQ_ASKED_QUES": "Frequently Asked Questions",
+  "ENTER_YOUR_ACCOUNT": "Enter your EOS Account below to receive a custom report of how many actions you can perform on the EOS Mainnet",
+  "EOS_ACCT_NAME": "EOS Account Name",
+  "API_CALL_FAILED": "API call failed. Please try again.",
+  "ACCT_NOT_FOUND": "Account '{{acctName}}' not found.",
+  "EOS_CHARGE": "EOS Charge",
+  "HOME": "Home",
+  "FAQ": "FAQ",
+  "HELPFUL_LINKS": "Helpful Links",
+  "ENGLISH": "English (EN)",
+  "CHINESE": "Chinese (ZH)",
+  "EOS_NEW_YORK": "EOS New York",
+  "QUESTIONS": "Questions?",
+  "WATCH_VIDEO": "Watch the video",
+  "READ_FAQ": "Read the FAQ",
+  "CLOSE": "Close",
+  "POPULAR_ACTIONS": "Popular Actions",
+  "DISCLAIMER": "Disclaimer",
+  "ACTION_TOP": "The <b><em>{{actionName}}</em></b> action on <b>{{actionAcct}}</b> costs <b>{{avgCpu}}</b> of CPU and <b>{{avgNet}}</b> of NET.",
+  "ACTION_BOTTOM": "You can <b><em>{{actionName}}</em> {{count}} times</b> over the next 72 hours based on your account's staked resources.",
+  "ACTION_SEARCH": "Action Search",
+  "TYPE_DAPP_ACCT_NAME": "Type a dApp account name or action name below to filter the list of actions",
+  "SEARCH": "Search",
+  "NO_ACTIONS_FOUND": "No actions found containing {{actionFilter}}",
+  "BACK": "Back",
+  "NEXT": "Next",
+  "OF": "of",
+  "DISCLAIMER_PARA_1": "Users are hereby informed that they should take all steps necessary to ascertain that the information you receive from eoscharge.io is correct and has been verified through your own independent means, checking references, public code, blockchain history, and double-checking information with independent sources. None of the authors, contributors, administrators, software developers, or anyone else connected with eoscharge.io, in any way whatsoever, can be responsible for your use of the information contained in or linked from eoscharge.io. We do not make any warranties about the completeness, reliability and accuracy of this information. Any action taken upon the information on this website is strictly at your own risk, and we will not be liable for losses and damages in connection with the use of our website. In consideration for eoscharge.io coordinating and supplying the data compiled from the public EOS blockchain, the user, developer, or subscriber acknowledges and agrees that none of the suppliers of the information: (1) accept any responsibility or liability for the frequency of provision and accuracy of the resources or any use made of the information by the user, developer, or subscriber, whether or not arising from the negligence of any suppliers; or (2) shall be liable for any loss of business nor any direct, indirect or consequential loss or damage resulting from any such irregularity, inaccuracy or use of the Information.",
+  "DISCLAIMER_PARA_2": "We do not use cookies nor do we store your account name nor any personal information at EOSCharge.io. Your account name is stored locally on your computer to quickly allow you to reenter it on your next visit.",
+  "LINKS_DISCLAIMER": "When visiting websites outside of EOS Charge, we cannot guarantee safety or validity of who they represent. Please exercise caution and be dilligent with the security of your account keys and information. Only share information with websites that you have validated for yourself.",
+  "MADE_WITH_LOVE": "Made with <span role='img' aria-label='heart' aria-labelledby='heart'>❤️</span> by <a target='_blank' rel='noopener noreferrer' href='https://www.eosnewyork.io/'>EOS New York</a>"
+  
+  
 }
