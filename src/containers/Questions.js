@@ -72,9 +72,11 @@ class Questions extends Component {
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button variant="outlined" color="primary">
-                    <Link to="/faq">{t('READ_FAQ')}</Link>
-                  </Button>
+                  <Link to="/faq">
+                    <Button variant="outlined" color="primary">
+                      {t('READ_FAQ')}
+                    </Button>
+                  </Link>
                 </Grid>
               </Grid>
             </CardContent>
