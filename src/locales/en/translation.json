@@ -3,6 +3,7 @@
   "FREQ_ASKED_QUES": "Frequently Asked Questions",
   "ENTER_YOUR_ACCOUNT": "Enter your EOS Account below to receive a custom report of how many actions you can perform on the EOS Mainnet",
   "EOS_ACCT_NAME": "EOS Account Name",
+  "ACCT_EXAMPLE": "Ex: eosnewyorkio",
   "API_CALL_FAILED": "API call failed. Please try again.",
   "ACCT_NOT_FOUND": "Account '{{acctName}}' not found.",
   "EOS_CHARGE": "EOS Charge",

@@ -3,7 +3,7 @@ import FaqStore from '../stores/FaqStore'
 import { Provider } from 'mobx-react'
 import FaqList from './FaqList'
 import Typography from '@material-ui/core/Typography'
-import Page from './Page'
+import PageWrapper from './PageWrapper'
 import { withNamespaces } from 'react-i18next'
 
 class Faq extends Component {
@@ -11,7 +11,7 @@ class Faq extends Component {
     const {t} = this.props
     
     return (      
-      <Page>
+      <PageWrapper>
           
         <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
           {t('FREQ_ASKED_QUES')}
@@ -21,7 +21,7 @@ class Faq extends Component {
           <FaqList />
         </Provider>
 
-      </Page>
+      </PageWrapper>
     )
   }
 }

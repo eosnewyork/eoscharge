@@ -19,6 +19,12 @@ const styles = theme => ({
   linkStyle: {
     textDecoration: 'none',
     display: 'block'
+  },
+  headerButton: {
+    marginRight: theme.spacing.unit
+  },
+  popper: {
+    zIndex: 1000
   }
 })
 
@@ -51,19 +57,19 @@ class HeaderLangMenu extends Component {
     
     return (
       <React.Fragment>
-        <IconButton
-              buttonRef={node => {
-                this.anchorEl = node;
-              }}
-              aria-owns={open ? 'menu-list-grow' : null}
-              aria-haspopup="true"
-              onClick={this.handleToggle}
-              color="inherit"
-            >
+        <IconButton 
+          className={classes.headerButton}
+          buttonRef={node => {
+            this.anchorEl = node;
+          }}
+          aria-owns={open ? 'menu-list-grow' : null}
+          aria-haspopup="true"
+          onClick={this.handleToggle}
+          color="inherit">
           <LanguageIcon />
         </IconButton>
         
-        <Popper open={open} anchorEl={this.anchorEl} transition disablePortal>
+        <Popper open={open} anchorEl={this.anchorEl} transition disablePortal className={classes.popper}>
           {({ TransitionProps, placement }) => (
             <Grow
               {...TransitionProps}

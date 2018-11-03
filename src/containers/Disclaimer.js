@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import Typography from '@material-ui/core/Typography'
+import PageStore from '../stores/PageStore'
+import { Provider } from 'mobx-react'
 import Page from './Page'
+import PageWrapper from './PageWrapper'
 import { withNamespaces } from 'react-i18next'
 
 class Disclaimer extends Component {
@@ -8,20 +10,11 @@ class Disclaimer extends Component {
     const {t} = this.props
     
     return (      
-      <Page>
-        <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
-          {t('DISCLAIMER')}
-        </Typography>
-
-        <Typography variant="body1" color="textPrimary" gutterBottom>
-          {t('DISCLAIMER_PARA_1')}
-        </Typography>
-
-        <Typography variant="body1" color="textPrimary">
-          {t('DISCLAIMER_PARA_2')}
-        </Typography>
-
-      </Page>    
+      <PageWrapper>
+        <Provider store={PageStore}>
+          <Page title={t('DISCLAIMER')} slug="disclaimer" />
+        </Provider>
+      </PageWrapper>
     )
   }
 }

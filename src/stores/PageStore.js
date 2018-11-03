@@ -1,13 +1,14 @@
 import { observable, action, decorate, computed } from 'mobx'
 import i18n from '../i18n'
 
-class FaqStore {
+class PageStore {
   
   constructor() {
-    this.faqs = []
+    this.pages = []
     this.state = 'init'
     this.error = null
     this.lng = i18n.language
+    this.slug = null
 
     i18n.on('languageChanged', lng => {
       this.setLng(lng)
@@ -18,21 +19,25 @@ class FaqStore {
     this.lng = lng
   }
 
+  setSlug = slug => {
+    this.slug = slug
+  }
+
   setState = state => {
     this.state = state
   }
 
-  setFaqs = data => {
-    this.faqs = data.objects
+  setPages = data => {
+    this.pages = data.objects
   }
 
-  get localizedFaqs() {
-    const faqs = this.faqs.filter(faq => {
-      //return faq.slug.split('-')[0] === this.lng
-      return faq.slug.split('-')[0] === 'en'
+  get localizedPage() {
+    //const matchSlug = `${this.lng}-${this.slug}`
+    const matchSlug = `en-${this.slug}`
+    const page = this.pages.find(page => {
+      return page.slug === matchSlug
     })
-    
-    return faqs
+    return page
   }
 
   setError = error => {
@@ -44,10 +49,12 @@ class FaqStore {
     this.setState('error')
   }
 
-  loadFaqs = name => {
+  loadPages = () => {
+    if(this.pages.length > 0) { return }
+
     this.setState('pending')
     
-    fetch('https://api.cosmicjs.com/v1/eosnewyork/object-type/eoscharge-faqs', {
+    fetch('https://api.cosmicjs.com/v1/eosnewyork/object-type/eoscharge-pages', {
       method: 'get'
     })
       .then(response => {
@@ -58,23 +65,25 @@ class FaqStore {
         
         return response.json()
       })
-      .then(this.setFaqs)
+      .then(this.setPages)
       .then(() => {this.setState('done')})
       .catch(this.handleError)
   }
 }
 
-decorate(FaqStore, {
+decorate(PageStore, {
   state: observable,
-  faqs: observable,
+  pages: observable,
   lng: observable,
-  localizedFaqs: computed,
+  slug: observable,
+  localizedPage: computed,
   error: observable,
-  setFaqs: action,
+  setPages: action,
   setState: action,
   setLng: action,
+  setSlug: action,
   setError: action
 })
 
-const store = new FaqStore()
+const store = new PageStore()
 export default store

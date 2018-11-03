@@ -63,7 +63,7 @@ class AccountForm extends Component {
               <InputLabel htmlFor="acct_name">{t('EOS_ACCT_NAME')}</InputLabel>
               <Input id="acct_name" 
                       value={store.accountName}
-                      placeholder="Ex: eosnewyorkio" 
+                      placeholder={t('ACCT_EXAMPLE')} 
                       autoFocus 
                       onChange={this.handleAcctNameChange} />
             </FormControl>

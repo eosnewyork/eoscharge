@@ -23,6 +23,9 @@ const styles = theme => ({
   linkStyle: {
     textDecoration: 'none',
     display: 'block'
+  },
+  headerButton: {
+    marginRight: theme.spacing.unit
   }
 })
 
@@ -50,14 +53,14 @@ class HeaderNavMenu extends Component {
     return (
       <React.Fragment>
         <IconButton
-              buttonRef={node => {
-                this.anchorEl = node;
-              }}
-              aria-owns={open ? 'menu-list-grow' : null}
-              aria-haspopup="true"
-              onClick={this.handleToggle}
-              color="inherit"
-            >
+          className={classes.headerButton}
+          buttonRef={node => {
+            this.anchorEl = node;
+          }}
+          aria-owns={open ? 'menu-list-grow' : null}
+          aria-haspopup="true"
+          onClick={this.handleToggle}
+          color="inherit">
           <MenuIcon />
         </IconButton>
         
