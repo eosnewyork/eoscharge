@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Button from '@material-ui/core/Button'
 import HeaderNavMenu from './HeaderNavMenu'
-//import HeaderLangMenu from './HeaderLangMenu'
+import HeaderLangMenu from './HeaderLangMenu'
 import { Link } from 'react-router-dom'
 import { withNamespaces } from 'react-i18next'
 
@@ -59,9 +59,7 @@ class Header extends Component {
             <Link to="/">{t('EOS_CHARGE')}</Link>
           </Typography>
 
-          {/*
           <HeaderLangMenu />
-          */}
 
           <Button variant="extendedFab" className={classes.button} href="https://www.eosnewyork.io/" target="_blank">
             <img className={classes.headerLogo} src="./images/EOS-NY_logo.svg" alt="EOS New York logo" />

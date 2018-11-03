@@ -32,8 +32,7 @@ class PageStore {
   }
 
   get localizedPage() {
-    //const matchSlug = `${this.lng}-${this.slug}`
-    const matchSlug = `en-${this.slug}`
+    const matchSlug = `${this.lng}-${this.slug}`
     const page = this.pages.find(page => {
       return page.slug === matchSlug
     })

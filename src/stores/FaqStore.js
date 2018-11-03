@@ -28,8 +28,7 @@ class FaqStore {
 
   get localizedFaqs() {
     const faqs = this.faqs.filter(faq => {
-      //return faq.slug.split('-')[0] === this.lng
-      return faq.slug.split('-')[0] === 'en'
+      return faq.slug.split('-')[0] === this.lng
     })
     
     return faqs

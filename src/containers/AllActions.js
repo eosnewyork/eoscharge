@@ -56,7 +56,7 @@ class AllActions extends Component {
 
             <div className={classes.buttons}>
               <Typography variant="body1" color="textSecondary">
-                {actionStore.startIdx + 1} - {actionStore.endIdx} {t('OF')} {actionStore.sortedList.length}
+                {t('PAGE_SIZE', {first: actionStore.startIdx + 1, last: actionStore.endIdx, total: actionStore.sortedList.length})}
               </Typography>
 
               <div>

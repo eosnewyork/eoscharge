@@ -3,15 +3,15 @@ import detector from "i18next-browser-languagedetector"
 import { reactI18nextModule } from "react-i18next"
 
 import translationEN from './locales/en/translation.json'
-//import translationZH from './locales/zh/translation.json'
+import translationZH from './locales/zh/translation.json'
 
 const resources = {
   en: {
     translation: translationEN
   },
-  //zh: {
-    //translation: translationZH
-  //}
+  zh: {
+    translation: translationZH
+  }
 }
 
 i18n
