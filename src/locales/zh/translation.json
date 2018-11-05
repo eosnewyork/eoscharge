@@ -19,7 +19,7 @@
   "CLOSE": "关闭",
   "POPULAR_ACTIONS": "热门操作",
   "DISCLAIMER": "免责声明",
-  "ACTION_TOP": "<b>{{actionAcct}}</b>上的<b><em>{{actionName}}</b></em>操作需要<b>{{avgCpu}}</b>（微妙）的CPU和<b>{{avgNet}}</b>（字节）的NET。",
+  "ACTION_TOP": "<b>{{actionAcct}}</b>上的<b><em>{{actionName}}</b></em>操作需要<b>{{avgCpu}}</b>（微秒）的CPU和<b>{{avgNet}}</b>（字节）的NET。",
   "ACTION_BOTTOM": "根据您帐户抵押的资源，您可以在接下来的72小时内<b><em>{{actionName}}</b></em> <b>{{count}}</b>次。",
   "ACTION_SEARCH": "操作搜索",
   "TYPE_DAPP_ACCT_NAME": "输入dAapp帐户名或者操作名称来筛选信息列表",
