@@ -97,8 +97,6 @@ class ActionStore {
     } else {
       delete params[QS_FILTER_KEY]
     }
-
-    console.log(params)
     
     this.history.push({
       pathname: "/",
