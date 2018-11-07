@@ -40,7 +40,7 @@ const styles = theme => ({
 
 class AccountForm extends Component {
   componentDidMount() {
-    this.props.store.loadSavedAccount()    
+    this.props.store.loadPrepopulatedAccount()    
   }
 
   handleSubmit = e => {

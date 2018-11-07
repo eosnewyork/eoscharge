@@ -1,6 +1,8 @@
 import { observable, action, decorate, computed } from 'mobx'
-import queryString from 'query-string'
+import qs from 'qs'
 import createHistory from "history/createBrowserHistory"
+
+const QS_FILTER_KEY = 'filter'
 
 class ActionStore {
   history = createHistory()
@@ -79,18 +81,28 @@ class ActionStore {
   }
 
   setFilterFromQuery = () => {
-    const query = queryString.parse(window.location.search)
-    if(query.filter && query.filter.length > 0) {
-      this.setFilter(query.filter)
+    const params = qs.parse(window.location.search, { ignoreQueryPrefix: true })
+    if(params[QS_FILTER_KEY]) {
+      this.setFilter(params[QS_FILTER_KEY])
     } else if (this.filter.length > 0) {
       this.setQueryString(this.filter)
     }
   }
 
   setQueryString = filter => {
+    let params = qs.parse(window.location.search, { ignoreQueryPrefix: true })
+    
+    if(filter.length > 0) {
+      params[QS_FILTER_KEY] = filter
+    } else {
+      delete params[QS_FILTER_KEY]
+    }
+
+    console.log(params)
+    
     this.history.push({
       pathname: "/",
-      search: filter.length > 0 ? queryString.stringify({filter: filter}) : ''
+      search: qs.stringify(params)
     })
   }
 

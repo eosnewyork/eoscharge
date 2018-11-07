@@ -10,7 +10,7 @@
     "i18next-browser-languagedetector": "^2.2.3",
     "mobx": "^5.1.0",
     "mobx-react": "^5.2.6",
-    "query-string": "^5.1.1",
+    "qs": "^6.5.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-i18next": "^8.1.0",

@@ -1,5 +1,6 @@
 import { observable, action, decorate } from 'mobx'
 import i18n from '../i18n'
+import qs from 'qs'
 
 const defaultAccount = {
   net_limit: {used: 100, available: 0, max: 100},
@@ -8,6 +9,7 @@ const defaultAccount = {
 }
 
 const LS_ACCT_NAME_KEY = 'account-name'
+const QS_ACCT_NAME_KEY = 'acct'
 
 class AccountStore {
   
@@ -15,10 +17,21 @@ class AccountStore {
     this.account = defaultAccount
     this.state = 'init'
     this.error = null
-    this.accountName = localStorage.getItem(LS_ACCT_NAME_KEY) || ""    
+    this.accountName = this.prepopulateAccount()
   }
 
-  loadSavedAccount = () => {
+  prepopulateAccount = () => {
+    let accountName = localStorage.getItem(LS_ACCT_NAME_KEY) || ''
+    
+    const params = qs.parse(window.location.search, { ignoreQueryPrefix: true })
+    if(params[QS_ACCT_NAME_KEY]) {
+      accountName = params[QS_ACCT_NAME_KEY]
+    }
+
+    return accountName
+  }
+
+  loadPrepopulatedAccount = () => {
     if(this.accountName.length > 0) {
       this.loadAccount()
     }
