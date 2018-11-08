@@ -1,31 +1,25 @@
-db.blocks.aggregate([
-  {
-    "$sort": {
-      "block_num": -1
-    }
+db.transaction_traces.aggregate([  
+  {  
+     $sort: {  
+        _id: -1
+     }
   },
-  {
-    "$limit": 100000
+  {  
+     $limit: 100000
   },
-  {
-    "$unwind": {
-      "path": "$block.transactions",
-      "preserveNullAndEmptyArrays": false
-    }
+  {  
+     $unwind: {  
+        path: "$action_traces",
+        preserveNullAndEmptyArrays: false
+     }
   },
-  {
-    "$unwind": {
-      "path": "$block.transactions.trx.transaction.actions",
-      "preserveNullAndEmptyArrays": false
-    }
-  },
-  {
-    "$project": {
-      "cpu_usage_us": "$block.transactions.cpu_usage_us",
-      "net_usage_words": "$block.transactions.net_usage_words",
-      "action_acct": "$block.transactions.trx.transaction.actions.account",
-      "action_name": "$block.transactions.trx.transaction.actions.name"
-    }
+  {  
+     $project: {  
+        cpu_usage_us: "$receipt.cpu_usage_us",
+        net_usage_words: "$receipt.net_usage_words",
+        action_acct: "$action_traces.act.account",
+        action_name: "$action_traces.act.name"
+     }
   },
   {
     "$group": {
