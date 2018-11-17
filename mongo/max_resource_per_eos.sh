@@ -1,7 +1,7 @@
 #!/bin/bash
 
 account_name='eosnewyorkio'
-content=$(cleos get account ${account_name} --json)
+content=$(cleos -u https://api.eosnewyork.io get account ${account_name} --json)
 cpu_max=$(jq -r '.cpu_limit.max' <<< "${content}")
 net_max=$(jq -r '.net_limit.max' <<< "${content}")
 net_weight=$(jq -r '.net_weight' <<< "${content}")
