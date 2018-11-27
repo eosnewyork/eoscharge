@@ -1,0 +1,41 @@
+db.max_resource_per_eos.aggregate([
+  { 
+    $match: {  
+      date:
+        { $gte : new Date(new Date().getTime() - 1000 * 60 * 60 * 24 * 7) }
+      }
+  }, 
+  { 
+    $project: {  
+      hour: { 
+        $hour: "$date"
+      },
+      cpu_per_eos: "$max_cpu_per_eos",
+      net_per_eos: "$max_net_per_eos",
+    } 
+  }, 
+  { 
+    $group: {
+      "_id": {
+        "hour": "$hour"      
+      },      
+      "avg_cpu_per_eos": {        
+        "$avg": "$cpu_per_eos"      
+      },
+      "avg_net_per_eos": {        
+        "$avg": "$net_per_eos"      
+      },      
+      "count": { 
+        "$sum": 1      
+      }    
+    } 
+  }, 
+  {
+    $sort: {
+      _id: 1 
+    }
+  },
+  {
+    "$out": "rsrc_per_eos_hourly_avg_results"
+  }
+])
