@@ -8,7 +8,9 @@ import PopularActions from './PopularActions'
 import AllActions from './AllActions'
 import AllActionsForm from './AllActionsForm'
 import { Provider } from 'mobx-react'
-import Questions from './Questions';
+import Questions from './Questions'
+import ResourceCostChart from './ResourceCostChart'
+import ResourceCostStore from '../stores/ResourceCostStore'
 
 const styles = theme => ({
   heroUnit: {
@@ -33,11 +35,15 @@ const styles = theme => ({
     },
   },
   popularCardGrid: {
-    padding: `${theme.spacing.unit * 8}px 0`,
+    paddingTop: theme.spacing.unit * 8,
+    paddingBottom: theme.spacing.unit * 24,
     marginTop: theme.spacing.unit * 6
   },
   allCardGrid: {
     padding: `${theme.spacing.unit * 4}px 0`,
+  },
+  allActionsForm: {
+    paddingTop: theme.spacing.unit * 34
   }
 })
 
@@ -61,7 +67,10 @@ class Home extends Component {
         </div>
         
         <div className={classes.heroUnit} id="all-actions">
-          <div className={classes.heroContent}>
+          <div className={classNames(classes.heroContent, classes.allActionsForm)}>
+            <Provider store={ResourceCostStore}>
+              <ResourceCostChart />
+            </Provider>
             <Provider actionStore={ActionStore}>
               <AllActionsForm />
             </Provider>  

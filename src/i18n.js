@@ -21,6 +21,9 @@ i18n
     resources,
     fallbackLng: "en",
     keySeparator: false, // we do not use keys in form messages.welcome
+    detection: {
+      lookupQuerystring: 'locale',
+    },
     interpolation: {
       escapeValue: false // react already safes from xss
     }

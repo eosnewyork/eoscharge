@@ -10,6 +10,9 @@ class Utils {
     if(type === 'cpu') {
       return Math.round(resource).toLocaleString() + ' µs'
     } 
+    else if(type === 'cpupereos') {
+      return Math.round(resource).toLocaleString() + ' µs / EOS'
+    } 
     else if(type === 'net') {
       return Math.round(resource / 1024).toLocaleString() + ' KiB'
     }

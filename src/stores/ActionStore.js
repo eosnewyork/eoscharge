@@ -16,8 +16,7 @@ class ActionStore {
     'monstereosio:feedpet': {
       img: 'monster-105.png',
       title: 'MonsterEOS', 
-      subtitle: 'Feed Pet',
-      description: 'Using your <strong>$AVAIL_CPU</strong> worth of CPU, you are able to feed your pet <strong>$COUNT</strong> times in the next 72 hours.'
+      subtitle: 'Feed Pet'
     },
     'eosluckydice:luck': {
       img: 'eoswin.jpg',
@@ -27,38 +26,32 @@ class ActionStore {
     'eosknightsio:sellmat2': {
       img: 'f1.png',
       title: 'EOS Knights', 
-      subtitle: 'Sell Material',
-      description: 'Using your <strong>$AVAIL_CPU</strong> worth of CPU, you are able to sell <strong>$COUNT</strong> materials in the next 72 hours.'
+      subtitle: 'Sell Material'
     },
     'pandafuncode:pray': {
       img: 'panda.png',
       title: 'Panda Fun', 
-      subtitle: 'Pray',
-      description: 'Using your <strong>$AVAIL_CPU</strong> worth of CPU, you are able to pray <strong>$COUNT</strong> times in the next 72 hours.'
+      subtitle: 'Pray'
     },
     'eosplaybrand:dicereveal': {
       img: 'eosplay.png',
       title: 'EOSPlay', 
-      subtitle: 'Dice Reveal',
-      description: 'Using your <strong>$AVAIL_CPU</strong> worth of CPU, you are able to reveal dice <strong>$COUNT</strong> times in the next 72 hours.'
+      subtitle: 'Dice Reveal'
     },
     'eosio:delegatebw': {
       img: 'eos_logo.png',
       title: 'EOSIO', 
-      subtitle: 'Delegate Bandwidth',
-      description: 'Using your <strong>$AVAIL_CPU</strong> worth of CPU, you are able to delegate bandwidth <strong>$COUNT</strong> times in the next 72 hours.'
+      subtitle: 'Delegate Bandwidth'
     },
     'eosio.token:transfer': {
       img: 'eos_logo.png',
       title: 'EOSIO', 
-      subtitle: 'Transfer',
-      description: 'Using your <strong>$AVAIL_CPU</strong> worth of CPU, you are able to transfer <strong>$COUNT</strong> times in the next 72 hours.'
+      subtitle: 'Transfer'
     },
     'betdicelucky:draw': {
       img: 'betdice.png',
       title: 'BetDice', 
-      subtitle: 'Draw',
-      description: 'Using your <strong>$AVAIL_CPU</strong> worth of CPU, you are able to draw <strong>$COUNT</strong> times in the next 72 hours.'
+      subtitle: 'Draw'
     },
   }
 

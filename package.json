@@ -10,12 +10,14 @@
     "i18next-browser-languagedetector": "^2.2.3",
     "mobx": "^5.1.0",
     "mobx-react": "^5.2.6",
+    "pondjs": "^0.8.9",
     "qs": "^6.5.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-i18next": "^8.1.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
+    "react-timeseries-charts": "^0.15.5",
     "universal-cookie": "^3.0.4"
   },
   "scripts": {
