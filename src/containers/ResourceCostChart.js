@@ -9,23 +9,14 @@ import { format } from 'd3-format'
 import { Charts, ChartContainer, ChartRow, YAxis, BarChart, Resizable, styler, Baseline } from 'react-timeseries-charts'
 
 const styles = theme => ({
-  questionCardWrapper: {
+  cardWrapper: {
     width: 800,
-    position: 'absolute',
     margin: 'auto',
-    left: 0,
-    right: 0,
-    marginTop: theme.spacing.unit * -52,
     [theme.breakpoints.down('sm')]: {
       width: '100%'
     }
   },
-  explainer: {
-    [theme.breakpoints.down('xs')]: {
-      display: 'none'
-    }
-  },
-  questionCard: {
+  card: {
     width: 'auto',
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
@@ -47,15 +38,12 @@ const styles = theme => ({
         strokeLinecap: 'butt',
         strokeLinejoin: 'miter'
       }
-
     }
   },
   currentValue: {
     fontWeight: 'bold'
   }
 })
-
-
 
 class ResourceCostChart extends Component {
   state = {
@@ -83,11 +71,11 @@ class ResourceCostChart extends Component {
         const cpuText = `${formatter(highlight.event.get(highlight.column))}`
         infoValues = [{ label: t('CPU_PER_EOS'), value: cpuText }]
     }
-    
+
     return (
       <div>
-        <div className={classes.questionCardWrapper}>
-          <Card className={classes.questionCard} elevation={8}>
+        <div className={classes.cardWrapper}>
+          <Card className={classes.card} elevation={8}>
             {store.series && <CardContent>
               <Typography variant="display2" align="center" color="textPrimary" gutterBottom>
                 {t('CPU_RESOURCE_COST')}

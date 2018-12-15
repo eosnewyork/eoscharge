@@ -1,43 +1,39 @@
 import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
-import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import { Link } from 'react-router-dom'
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import { withNamespaces } from 'react-i18next'
 
 const styles = theme => ({
-  questionCardWrapper: {
-    width: 600,
-    position: 'absolute',
-    margin: 'auto',
-    left: 0,
-    right: 0,
-    marginTop: theme.spacing.unit * -2,
-    [theme.breakpoints.down('sm')]: {
-      width: '100%',
-      margin: 0,
-    }
-  },
-  questionCard: {
-    width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    '& a': {
-      textDecoration: 'none',
-      color: theme.palette.primary.main,
-    }
-  },
   youtubeVid: {
     width: '65vw',
     height: 'calc(65vw/1.77777778)',
     maxWidth: 560,
     maxHeight: 315
+  },
+  cornerRibbon: {
+    width: 200,
+    background: '#EDEDED',
+    position: 'absolute',
+    top: 35,
+    left: -47,
+    textAlign: 'center',
+    lineHeight: 50,
+    letterSpacing: 1,
+    transform: 'rotate(-45deg)',
+    boxShadow: '0 0 3px rgba(27, 90, 108, .7)',
+    color: theme.palette.primary.main,
+    cursor: 'pointer'
+  },
+  buttonText: {
+    marginTop: '0.25em',
+    color: theme.palette.primary.main,
+    fontWeight: 700,
+    fontSize: '0.9rem',
+    textTransform: 'uppercase'
   }
 })
 
@@ -59,28 +55,10 @@ class Questions extends Component {
     
     return (
       <div>
-        <div className={classes.questionCardWrapper}>
-          <Card className={classes.questionCard} elevation={8}>
-            <CardContent> 
-              <Typography variant="display2" align="center" color="textPrimary" gutterBottom>
-                {t('QUESTIONS')}
-              </Typography>
-              <Grid container spacing={16} justify="center">
-                <Grid item>
-                  <Button variant="contained" color="primary" onClick={this.handleClickOpen}>
-                    {t('WATCH_VIDEO')}
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Link to="/faq">
-                    <Button variant="outlined" color="primary">
-                      {t('READ_FAQ')}
-                    </Button>
-                  </Link>
-                </Grid>
-              </Grid>
-            </CardContent>
-          </Card>
+        <div className={classes.cornerRibbon}>
+          <Typography variant="subheading" align="center" color="textPrimary" className={classes.buttonText} gutterBottom onClick={this.handleClickOpen}>
+            {t('WATCH_VIDEO')}
+          </Typography>
         </div>
         
         <Dialog

@@ -9,10 +9,10 @@ import { withNamespaces } from 'react-i18next'
 
 const styles = theme => ({
   heroButtons: {
-    marginTop: theme.spacing.unit * 4
+    marginTop: theme.spacing.unit * 14
   },
   acctWrapper: {
-    marginBottom: theme.spacing.unit * 8
+    marginBottom: theme.spacing.unit * 4
   }
 })
 
