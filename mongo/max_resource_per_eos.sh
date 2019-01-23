@@ -1,5 +1,10 @@
 #!/bin/bash
 
+url=https://api.eosnewyork.io
+if [ "$1" -ne "" ]; then
+    url=$1
+fi
+
 account_name='eosnewyorkio'
 content=$(cleos -u https://api.eosnewyork.io get account ${account_name} --json)
 cpu_max=$(jq -r '.cpu_limit.max' <<< "${content}")
