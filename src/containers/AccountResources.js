@@ -17,7 +17,7 @@ class AccountResources extends Component {
   render() {
     const {store} = this.props
     const {classes} = this.props
-
+    
     return (
       <Collapse in={['done'].includes(store.state)}>        
           <Grid container className={classes.batteryRoot} spacing={16} justify="center">

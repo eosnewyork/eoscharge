@@ -6,12 +6,12 @@ class Utils {
     return Math.floor(avail/cost)
   }
 
-  formatQuantity = (resource, type) => {
+  formatQuantity = (resource, type, currency) => {
     if(type === 'cpu') {
       return Math.round(resource).toLocaleString() + ' µs'
     } 
     else if(type === 'cpupereos') {
-      return Math.round(resource).toLocaleString() + ' µs / EOS'
+      return Math.round(resource).toLocaleString() + ' µs / ' + currency.toUpperCase();
     } 
     else if(type === 'net') {
       return Math.round(resource / 1024).toLocaleString() + ' KiB'

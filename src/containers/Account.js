@@ -27,14 +27,14 @@ class Account extends Component {
           {t('TAKE_CHARGE')}
         </Typography>
         <Typography variant="title" align="center" color="textSecondary" paragraph>
-          {t('ENTER_YOUR_ACCOUNT')}
+          {t('ENTER_YOUR_ACCOUNT', {currency: this.props.network.toUpperCase()})}
         </Typography>
         <div className={classes.heroButtons}>
           <Provider store={AccountStore}>
-            <AccountForm />
+            <AccountForm network={this.props.network} />
           </Provider>
           <Provider store={AccountStore}>
-            <AccountResources />
+            <AccountResources network={this.props.network} />
           </Provider>
         </div>
       </div>

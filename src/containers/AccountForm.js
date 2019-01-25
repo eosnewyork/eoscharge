@@ -42,6 +42,12 @@ class AccountForm extends Component {
   componentDidMount() {
     this.props.store.loadPrepopulatedAccount()    
   }
+  
+  componentDidUpdate(prevProps) {
+    if (this.props.network !== prevProps.network){
+      this.props.store.loadAccount();
+    }
+  }
 
   handleSubmit = e => {
     e.preventDefault()
@@ -54,13 +60,13 @@ class AccountForm extends Component {
 
   render() {
     const {store, classes, t} = this.props
-
+    store.setNetwork(this.props.network);
     return (
       <React.Fragment>
         <form className={classes.form} onSubmit={e => this.handleSubmit(e)}>
           <div className={classes.formInputs}>
             <FormControl margin="none" required fullWidth>
-              <InputLabel htmlFor="acct_name">{t('EOS_ACCT_NAME')}</InputLabel>
+              <InputLabel htmlFor="acct_name">{t('EOS_ACCT_NAME', {currency: this.props.network.toUpperCase()})}</InputLabel>
               <Input id="acct_name" 
                       value={store.accountName}
                       placeholder={t('ACCT_EXAMPLE')} 

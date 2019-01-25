@@ -13,6 +13,7 @@ class ResourceCostStore {
     this.min = null
     this.histAvgPresent = null
     this.currentTime = null
+    this.network = 'eos'
   }
 
   setCurrentCpuPerEOS = data => {
@@ -21,7 +22,7 @@ class ResourceCostStore {
       return
     }
     const current = data.cpu_limit.max / (data.cpu_weight / 10000)
-    this.currentCpuPerEOS = Utils.formatQuantity(current, 'cpupereos')
+    this.currentCpuPerEOS = Utils.formatQuantity(current, 'cpupereos', this.network)
   }
 
   setCurrentTime = startTime => {
@@ -35,8 +36,17 @@ class ResourceCostStore {
     this.setCurrentCpuPerEOS(null)
   }
 
+  setNetwork = network => {
+    this.network = network;   
+  }
+
   loadAccount = () => {
-    fetch('https://api.eosnewyork.io/v1/chain/get_account', {
+    let url = 'https://api.eosnewyork.io/v1/chain/get_account'
+    if (this.network === 'bos') {
+      url = 'https://api.bos.eosnewyork.io/v1/chain/get_account'
+    }
+
+    fetch(url, {
       method: 'post',
       body: JSON.stringify({'account_name': 'eosnewyorkio'})
     })
@@ -56,7 +66,8 @@ class ResourceCostStore {
 
   loadCostData = () => {
     const cachebust = (new Date()).getTime()
-    fetch(`https://www.eossnapshots.io/data/eoscharge/rsrc_hourly_latest.json?ts=${cachebust}`)
+    let url = `https://www.eossnapshots.io/data/${this.network}charge/rsrc_hourly_latest.json?ts=${cachebust}`
+    fetch(url)
       .then(response => response.json())
       .then(data => this.createSeries(data))
   }
@@ -113,7 +124,7 @@ class ResourceCostStore {
     this.setAvgCpu(series.avg('cpu'))
     this.setMax(series.max('cpu'))
     this.setMin(series.min('cpu'))
-    this.setHistAvgPresent(Utils.formatQuantity(series.atTime(new Date(startTime)).get('cpu'), 'cpupereos'))
+    this.setHistAvgPresent(Utils.formatQuantity(series.atTime(new Date(startTime)).get('cpu'), 'cpupereos', this.network))
     this.setCurrentTime(startTime)
   }
 
@@ -136,7 +147,8 @@ decorate(ResourceCostStore, {
   setHistAvgPresent: action,
   histAvgPresent: observable,
   setCurrentTime: action,
-  currentTime: observable
+  currentTime: observable,
+  setNetwork: action
 })
 
 const store = new ResourceCostStore()

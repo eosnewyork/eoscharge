@@ -37,13 +37,31 @@ const theme = createMuiTheme({
 })
 
 class App extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      network: 'eos',
+    };
+    this.handleNetworkChange = this.handleNetworkChange.bind(this);
+  }
+  
+  handleNetworkChange(network) {
+    this.setState({
+      network: network,
+    });
+    
+  }
+
   render() {
+    document.title = `${this.state.network.toUpperCase()} Charge`
     return (
       <MuiThemeProvider theme={theme}>
         <CssBaseline />            
-        <Header />
+        <Header handleNetworkChange={this.handleNetworkChange} network={this.state.network}/>
         <main>        
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact 
+                 render={(props) => <Home {...props} network={this.state.network} />} />
           <Route path="/faq" component={Faq} />
           <Route path="/disclaimer" component={Disclaimer} />
           <Route path="/links" component={Links} />

@@ -21,11 +21,16 @@ const styles = theme => ({
 
 class AllActions extends Component {
   componentDidMount() {
-    
+    this.props.actionStore.loadActions()
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.network !== prevProps.network){
+      this.props.actionStore.loadActions();
+    }
   }
 
   componentWillReact() {
-    
   }
 
   handleBack = () => {
@@ -38,7 +43,9 @@ class AllActions extends Component {
 
   render() {
     const {actionStore, acctStore, classes, t} = this.props
-    
+    // set acction/acct store network
+    this.props.actionStore.setNetwork(this.props.network);
+    this.props.acctStore.setNetwork(this.props.network);
     return (
       <React.Fragment>
         {actionStore.isLoaded &&

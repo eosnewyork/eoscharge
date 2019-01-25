@@ -56,20 +56,27 @@ class ResourceCostChart extends Component {
     this.props.store.loadCostData()
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.network !== prevProps.network){
+      this.props.store.loadAccount();
+      this.props.store.loadCostData();
+    }
+  }
+
   componentWillUnmount() {
     clearInterval(this.interval)
   }
 
   render() {
-    const {classes, t, store} = this.props
-    const style = styler([{ key: 'cpu', color: '#1B5A6C', selected: '#2CB1CF' }])
-    
+    const {classes, t, store} = this.props;
+    const style = styler([{ key: 'cpu', color: '#1B5A6C', selected: '#2CB1CF' }]);
+    store.setNetwork(this.props.network);
     const formatter = format(',.0f');
     const highlight = this.state.highlight;
     let infoValues = [];
     if (highlight) {
         const cpuText = `${formatter(highlight.event.get(highlight.column))}`
-        infoValues = [{ label: t('CPU_PER_EOS'), value: cpuText }]
+        infoValues = [{ label: t('CPU_PER_EOS', {currency: this.props.network.toUpperCase()}), value: cpuText }]
     }
 
     return (
@@ -127,7 +134,7 @@ class ResourceCostChart extends Component {
               </Typography>
 
               <Typography className={classes.explainer} variant="caption" align="left" color="textPrimary" gutterBottom>
-                {t('CPU_RESOURCE_COST_EXPL')}
+                {t('CPU_RESOURCE_COST_EXPL', {currency: this.props.network.toUpperCase()})}
               </Typography>
 
             </CardContent>}
