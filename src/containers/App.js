@@ -8,6 +8,7 @@ import Disclaimer from './Disclaimer'
 import Links from './Links'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { Route } from 'react-router-dom'
+import { WWW_STR, EOS_NETWORK } from '../config.js'
 
 const theme = createMuiTheme({
   typography: {
@@ -40,8 +41,11 @@ class App extends Component {
   
   constructor(props) {
     super(props);
-    let net = "eos";
-    let subdomain = window.location.host.toLowerCase().split(".")[0];
+    let net = EOS_NETWORK;
+
+    let hostName = window.location.host.toLowerCase().replace(WWW_STR, "");
+    let subdomain = hostName.split(".")[0];
+    console.info(subdomain)
     if(! subdomain.startsWith(net) && ! subdomain.startsWith("localhost")) {
       net = subdomain;
     }
@@ -52,10 +56,12 @@ class App extends Component {
   }
 
   handleNetworkChange(network) {
-    let urlPrefix = window.location.protocol + "//";
-    let urlSuffix = window.location.host + window.location.pathname + window.location.search;
+    let urlPrefix = window.location.protocol + "//" + WWW_STR;
+    // remove www. from host 
+    let hostName = window.location.host.toLowerCase().replace(WWW_STR, ""); 
+    let urlSuffix = hostName + window.location.pathname + window.location.search;
     let url = urlPrefix + urlSuffix;
-    if ( network !== "eos") {
+    if ( network !== EOS_NETWORK) {
       url = urlPrefix + network + "." + urlSuffix;
     } 
     else {

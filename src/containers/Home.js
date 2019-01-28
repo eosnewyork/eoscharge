@@ -12,6 +12,7 @@ import Questions from './Questions'
 import ResourceCostChart from './ResourceCostChart'
 import ResourceCostStore from '../stores/ResourceCostStore'
 import { withNamespaces } from 'react-i18next'
+import { EOS_NETWORK } from '../config.js';
 
 const styles = theme => ({
   heroUnit: {
@@ -68,7 +69,7 @@ class Home extends Component {
         </Provider>
       </div>
 
-    if (this.props.network === "bos") {
+    if (this.props.network !== EOS_NETWORK) {
       popularDiv = <div></div>
     }
 

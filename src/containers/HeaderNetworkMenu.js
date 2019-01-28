@@ -8,12 +8,11 @@ import MenuItem from '@material-ui/core/MenuItem'
 import MenuList from '@material-ui/core/MenuList'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
-import LayersIcon from '@material-ui/icons/Layers'
 import IconButton from '@material-ui/core/IconButton'
 import EosIcon from "../assets/eos_icon.svg";
 import BosIcon from "../assets/bos_icon.svg";
-import SvgIcon from '@material-ui/core/SvgIcon'
-import { withNamespaces } from 'react-i18next'
+import { withNamespaces } from 'react-i18next';
+import { EOS_NETWORK, BOS_NETWORK } from '../config.js';
 //import { List } from 'immutable';
 
 const styles = theme => ({
@@ -36,7 +35,7 @@ class HeaderNetworkMenu extends Component {
   
   constructor(props) {
     super(props);
-    let net = "eos";
+    let net = EOS_NETWORK;
     if(this.props.network) {
       net = this.props.network;
     }
@@ -70,7 +69,7 @@ class HeaderNetworkMenu extends Component {
     const bosLogo = <img src={BosIcon} width="25" height="25" />
     let selectedLogo = eosLogo;
     switch (net){
-      case "bos":
+      case BOS_NETWORK:
         selectedLogo = bosLogo;
     }
     return (
@@ -98,13 +97,13 @@ class HeaderNetworkMenu extends Component {
                 <ClickAwayListener onClickAway={this.handleClose}>
                   <MenuList onClick={this.handleClose}> 
                     
-                      <MenuItem onClick={() => this.changeNetwork('eos')} selected={net === 'eos'}>
+                      <MenuItem onClick={() => this.changeNetwork(EOS_NETWORK)} selected={net === EOS_NETWORK}>
                         <ListItemIcon> {eosLogo} </ListItemIcon>
-                        <ListItemText classes={{ primary: classes.primary }} primary={t('EOS')} />
+                        <ListItemText classes={{ primary: classes.primary }} primary={t(EOS_NETWORK.toUpperCase())} />
                       </MenuItem>
-                      <MenuItem onClick={() => this.changeNetwork('bos')} selected={net === 'bos'}>
+                      <MenuItem onClick={() => this.changeNetwork(BOS_NETWORK)} selected={net === BOS_NETWORK}>
                       <ListItemIcon> {bosLogo} </ListItemIcon>
-                        <ListItemText classes={{ primary: classes.primary }} primary={t('BOS (BETA)')} />
+                        <ListItemText classes={{ primary: classes.primary }} primary={t(BOS_NETWORK.toUpperCase() + ' (BETA)')} />
                       </MenuItem>
                     
                   </MenuList>
