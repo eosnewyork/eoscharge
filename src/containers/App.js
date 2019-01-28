@@ -40,20 +40,36 @@ class App extends Component {
   
   constructor(props) {
     super(props);
+    let net = "eos";
+    let subdomain = window.location.host.toLowerCase().split(".")[0];
+    if(! subdomain.startsWith(net) && ! subdomain.startsWith("localhost")) {
+      net = subdomain;
+    }
     this.state = {
-      network: 'eos',
+      network: net,
     };
     this.handleNetworkChange = this.handleNetworkChange.bind(this);
   }
-  
+
   handleNetworkChange(network) {
+    let urlPrefix = window.location.protocol + "//";
+    let urlSuffix = window.location.host + window.location.pathname + window.location.search;
+    let url = urlPrefix + urlSuffix;
+    if ( network !== "eos") {
+      url = urlPrefix + network + "." + urlSuffix;
+    } 
+    else {
+      // remove subdomain if network is eos
+      url = url.replace(this.state.network + ".", "")
+    }
     this.setState({
       network: network,
     });
-    
+    window.location.replace(url);
   }
 
   render() {
+
     document.title = `${this.state.network.toUpperCase()} Charge`
     return (
       <MuiThemeProvider theme={theme}>

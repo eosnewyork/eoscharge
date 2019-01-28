@@ -28,9 +28,17 @@ const styles = theme => ({
 })
 
 class HeaderNetworkMenu extends Component {
-  state = {
-    open: false,
-    net: "eos"
+  
+  constructor(props) {
+    super(props);
+    let net = "eos";
+    if(this.props.network) {
+      net = this.props.network;
+    }
+    this.state = {
+      open: false,
+      net: net,
+    };
   }
 
   handleToggle = () => {
@@ -83,7 +91,7 @@ class HeaderNetworkMenu extends Component {
                         <ListItemText classes={{ primary: classes.primary }} primary={t('EOS')} />
                       </MenuItem>
                       <MenuItem onClick={() => this.changeNetwork('bos')} selected={net === 'bos'}>
-                        <ListItemText classes={{ primary: classes.primary }} primary={t('BOS')} />
+                        <ListItemText classes={{ primary: classes.primary }} primary={t('BOS (BETA)')} />
                       </MenuItem>
                     
                   </MenuList>

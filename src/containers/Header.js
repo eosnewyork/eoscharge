@@ -47,7 +47,7 @@ const styles = theme => ({
 })
 
 class Header extends Component {
-
+  
   render() {
     const { classes, t } = this.props
     
@@ -59,7 +59,7 @@ class Header extends Component {
           <Typography variant="title" color="inherit" noWrap className={classes.title}>
             <Link to="/">{t('EOS_CHARGE', {currency: this.props.network.toUpperCase()})}</Link>
           </Typography>
-          <HeaderNetworkMenu handleNetworkChange={this.props.handleNetworkChange}/>
+          <HeaderNetworkMenu handleNetworkChange={this.props.handleNetworkChange} network={this.props.network}/>
           <HeaderLangMenu />
 
           <Button variant="extendedFab" className={classes.button} href="https://www.eosnewyork.io/" target="_blank">
