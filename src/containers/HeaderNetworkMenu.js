@@ -7,9 +7,14 @@ import Popper from '@material-ui/core/Popper'
 import MenuItem from '@material-ui/core/MenuItem'
 import MenuList from '@material-ui/core/MenuList'
 import ListItemText from '@material-ui/core/ListItemText'
-import LanguageIcon from '@material-ui/icons/Layers'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import LayersIcon from '@material-ui/icons/Layers'
 import IconButton from '@material-ui/core/IconButton'
+import EosIcon from "../assets/eos_icon.svg";
+import BosIcon from "../assets/bos_icon.svg";
+import SvgIcon from '@material-ui/core/SvgIcon'
 import { withNamespaces } from 'react-i18next'
+//import { List } from 'immutable';
 
 const styles = theme => ({
   icon: {
@@ -61,7 +66,13 @@ class HeaderNetworkMenu extends Component {
   render() {
     const { classes, t } = this.props
     const { open, net } = this.state
-    
+    const eosLogo = <img src={EosIcon} width="25" height="25" />
+    const bosLogo = <img src={BosIcon} width="25" height="25" />
+    let selectedLogo = eosLogo;
+    switch (net){
+      case "bos":
+        selectedLogo = bosLogo;
+    }
     return (
       <React.Fragment>
         <IconButton 
@@ -73,7 +84,7 @@ class HeaderNetworkMenu extends Component {
           aria-haspopup="true"
           onClick={this.handleToggle}
           color="inherit">
-          <LanguageIcon />
+          {selectedLogo}
         </IconButton>
         
         <Popper open={open} anchorEl={this.anchorEl} transition disablePortal className={classes.popper}>
@@ -88,9 +99,11 @@ class HeaderNetworkMenu extends Component {
                   <MenuList onClick={this.handleClose}> 
                     
                       <MenuItem onClick={() => this.changeNetwork('eos')} selected={net === 'eos'}>
+                        <ListItemIcon> {eosLogo} </ListItemIcon>
                         <ListItemText classes={{ primary: classes.primary }} primary={t('EOS')} />
                       </MenuItem>
                       <MenuItem onClick={() => this.changeNetwork('bos')} selected={net === 'bos'}>
+                      <ListItemIcon> {bosLogo} </ListItemIcon>
                         <ListItemText classes={{ primary: classes.primary }} primary={t('BOS (BETA)')} />
                       </MenuItem>
                     
