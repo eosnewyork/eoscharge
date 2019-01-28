@@ -5,9 +5,11 @@ import createHistory from "history/createBrowserHistory"
 const QS_FILTER_KEY = 'filter'
 
 class ActionStore {
+  
   history = createHistory()
   actions = []
   isLoaded = false
+  network = 'eos' 
   blacklist = ['foobar']
   startIdx = 0
   pageSize = 20
@@ -57,12 +59,18 @@ class ActionStore {
 
   loadActions = name => {
     const cachebust = (new Date()).getTime()
-    fetch(`https://www.eossnapshots.io/data/eoscharge/latest.json?ts=${cachebust}`)
+    let url = `https://www.eossnapshots.io/data/${this.network}charge/latest.json?ts=${cachebust}`; 
+    fetch(url)
       .then(response => response.json())
       .then(data => this.setActions(data))
   }
 
+  setNetwork = network => {
+    this.network = network;   
+  }
+
   setActions = actions => {
+    
     this.actions = actions.filter(agg => {
       return !this.blacklist.includes(agg._id.acct)
     }).map(action => {
@@ -164,7 +172,8 @@ decorate(ActionStore, {
   endIdx: computed,
   pageSize: observable,
   nextPage: action,
-  prevPage: action
+  prevPage: action,
+  setNetwork: action
 })
 
 const store = new ActionStore()

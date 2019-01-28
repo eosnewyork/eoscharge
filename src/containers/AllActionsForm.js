@@ -17,13 +17,20 @@ const styles = theme => ({
 
 class AllActionsForm extends Component {
 
+  componentDidUpdate(prevProps) {
+    if (this.props.network !== prevProps.network){
+      this.props.actionStore.loadActions();
+    }
+  }
+
   handleFilterChange = value => {
-    this.props.actionStore.setFilter(value)
+    this.props.actionStore.setFilter(value);
   }
 
   render() {
     const {actionStore, classes, t} = this.props
-    
+    // set acction/acct store network
+    this.props.actionStore.setNetwork(this.props.network);
     return (
       <React.Fragment>
         {actionStore.isLoaded &&

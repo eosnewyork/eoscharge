@@ -12,6 +12,7 @@ import Questions from './Questions'
 import ResourceCostChart from './ResourceCostChart'
 import ResourceCostStore from '../stores/ResourceCostStore'
 import { withNamespaces } from 'react-i18next'
+import { EOS_NETWORK } from '../config.js';
 
 const styles = theme => ({
   heroUnit: {
@@ -59,9 +60,19 @@ const styles = theme => ({
 })
 
 class Home extends Component {
+
   render() {
     const {classes} = this.props
-    
+    let popularDiv = <div className={classNames(classes.layout, classes.popularCardGrid)}>
+        <Provider actionStore={ActionStore} acctStore={AccountStore}>
+          <PopularActions />
+        </Provider>
+      </div>
+
+    if (this.props.network !== EOS_NETWORK) {
+      popularDiv = <div></div>
+    }
+
     return (      
       <div className={classes.home}>
         
@@ -69,31 +80,27 @@ class Home extends Component {
 
         <div className={classes.heroUnit}>
           <div className={classes.heroContent}>
-            <Account />
+            <Account network={this.props.network}/>
           </div>
         </div>
         
         <div className={classes.splitScreen}>
           <Provider store={ResourceCostStore}>
-            <ResourceCostChart />
-          </Provider>
-        </div>
-
-        <div className={classNames(classes.layout, classes.popularCardGrid)}>
-          <Provider actionStore={ActionStore} acctStore={AccountStore}>
-            <PopularActions />
+            <ResourceCostChart network={this.props.network}/>
           </Provider>
         </div>
         
+        {popularDiv}
+
         <div className={classes.heroUnit} id="all-actions">
           <div className={classNames(classes.heroContent, classes.allActionsForm)}> 
             <Provider actionStore={ActionStore}>
-              <AllActionsForm />
+              <AllActionsForm network={this.props.network}/>
             </Provider>  
           </div>
           <div className={classNames(classes.layout, classes.allCardGrid)}>
-            <Provider actionStore={ActionStore} acctStore={AccountStore}>
-              <AllActions />
+            <Provider actionStore={ActionStore} acctStore={AccountStore} >
+              <AllActions network={this.props.network}/>
             </Provider>
           </div>
         </div>

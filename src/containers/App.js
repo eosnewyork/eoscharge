@@ -8,6 +8,7 @@ import Disclaimer from './Disclaimer'
 import Links from './Links'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { Route } from 'react-router-dom'
+import { WWW_STR, EOS_NETWORK } from '../config.js'
 
 const theme = createMuiTheme({
   typography: {
@@ -37,13 +38,52 @@ const theme = createMuiTheme({
 })
 
 class App extends Component {
+  
+  constructor(props) {
+    super(props);
+    let net = EOS_NETWORK;
+
+    let hostName = window.location.host.toLowerCase().replace(WWW_STR, "");
+    let subdomain = hostName.split(".")[0];
+    console.info(subdomain)
+    if(! subdomain.startsWith(net) && ! subdomain.startsWith("localhost")) {
+      net = subdomain;
+    }
+    this.state = {
+      network: net,
+    };
+    this.handleNetworkChange = this.handleNetworkChange.bind(this);
+  }
+
+  handleNetworkChange(network) {
+    let urlPrefix = window.location.protocol + "//" + WWW_STR;
+    // remove www. from host 
+    let hostName = window.location.host.toLowerCase().replace(WWW_STR, ""); 
+    let urlSuffix = hostName + window.location.pathname + window.location.search;
+    let url = urlPrefix + urlSuffix;
+    if ( network !== EOS_NETWORK) {
+      url = urlPrefix + network + "." + urlSuffix;
+    } 
+    else {
+      // remove subdomain if network is eos
+      url = url.replace(this.state.network + ".", "")
+    }
+    this.setState({
+      network: network,
+    });
+    window.location.replace(url);
+  }
+
   render() {
+
+    document.title = `${this.state.network.toUpperCase()} Charge`
     return (
       <MuiThemeProvider theme={theme}>
         <CssBaseline />            
-        <Header />
+        <Header handleNetworkChange={this.handleNetworkChange} network={this.state.network}/>
         <main>        
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact 
+                 render={(props) => <Home {...props} network={this.state.network} />} />
           <Route path="/faq" component={Faq} />
           <Route path="/disclaimer" component={Disclaimer} />
           <Route path="/links" component={Links} />

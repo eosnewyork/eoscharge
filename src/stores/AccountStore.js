@@ -18,6 +18,7 @@ class AccountStore {
     this.state = 'init'
     this.error = null
     this.accountName = this.prepopulateAccount()
+    this.network = 'eos'
   }
 
   prepopulateAccount = () => {
@@ -62,26 +63,39 @@ class AccountStore {
     localStorage.removeItem(LS_ACCT_NAME_KEY)
   }
 
+  setNetwork = network => {
+    this.network = network;   
+  }
+
   loadAccount = name => {
     this.setState('pending')
     
-    fetch('https://api.eosnewyork.io/v1/chain/get_account', {
-      method: 'post',
-      body: JSON.stringify({'account_name': this.accountName})
-    })
-      .then(response => {
-
-        if (response.status === 500) {
-          throw Error(i18n.t('ACCT_NOT_FOUND', { acctName: this.accountName}));
-        } else if(!response.ok) {
-          throw Error(i18n.t('API_CALL_FAILED'));
-        }
-        
-        return response.json()
+    if (this.accountName !== '') {
+      let url = 'https://api.eosnewyork.io/v1/chain/get_account'
+      if (this.network === 'bos') {
+        url = 'https://api.bos.eosnewyork.io/v1/chain/get_account'
+      }
+      fetch(url, {
+        method: 'post',
+        body: JSON.stringify({'account_name': this.accountName})
       })
-      .then(this.setAccount)
-      .then(() => {this.setState('done')})
-      .catch(this.handleError)
+        .then(response => {
+
+          if (response.status === 500) {
+            throw Error(i18n.t('ACCT_NOT_FOUND', { acctName: this.accountName}));
+          } else if(!response.ok) {
+            throw Error(i18n.t('API_CALL_FAILED'));
+          }
+          
+          return response.json()
+        })
+        .then(this.setAccount)
+        .then(() => {this.setState('done')})
+        .catch(this.handleError)
+    }
+    else {
+      this.setState('init');
+    }
   }
 }
 
@@ -94,6 +108,7 @@ decorate(AccountStore, {
   setState: action,
   setError: action,
   setAccount: action,
+  setNetwork: action
 })
 
 const store = new AccountStore()

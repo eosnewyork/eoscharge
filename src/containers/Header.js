@@ -6,6 +6,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import Button from '@material-ui/core/Button'
 import HeaderNavMenu from './HeaderNavMenu'
 import HeaderLangMenu from './HeaderLangMenu'
+import HeaderNetworkMenu from './HeaderNetworkMenu'
 import { Link } from 'react-router-dom'
 import { withNamespaces } from 'react-i18next'
 
@@ -46,7 +47,7 @@ const styles = theme => ({
 })
 
 class Header extends Component {
-
+  
   render() {
     const { classes, t } = this.props
     
@@ -56,9 +57,9 @@ class Header extends Component {
           <HeaderNavMenu />
           
           <Typography variant="title" color="inherit" noWrap className={classes.title}>
-            <Link to="/">{t('EOS_CHARGE')}</Link>
+            <Link to="/">{t('EOS_CHARGE', {currency: this.props.network.toUpperCase()})}</Link>
           </Typography>
-
+          <HeaderNetworkMenu handleNetworkChange={this.props.handleNetworkChange} network={this.props.network}/>
           <HeaderLangMenu />
 
           <Button variant="extendedFab" className={classes.button} href="https://www.eosnewyork.io/" target="_blank">
