@@ -65,12 +65,15 @@ class HeaderNetworkMenu extends Component {
   render() {
     const { classes, t } = this.props
     const { open, net } = this.state
-    const eosLogo = <img src={EosIcon} width="25" height="25" />
-    const bosLogo = <img src={BosIcon} width="25" height="25" />
+    const eosLogo = <img src={EosIcon} alt="EOS Mainnet Logo" width="25" height="25" />
+    const bosLogo = <img src={BosIcon} alt="BOS Logo" width="25" height="25" />
     let selectedLogo = eosLogo;
     switch (net){
       case BOS_NETWORK:
         selectedLogo = bosLogo;
+        break;
+      default:
+        selectedLogo = eosLogo
     }
     return (
       <React.Fragment>
