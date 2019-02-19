@@ -1,7 +1,7 @@
 #!/bin/bash
 
 url=https://api.eosnewyork.io
-if [ "$1" -ne "" ]; then
+if [ "$1" = "" ]; then
     url=$1
 fi
 
