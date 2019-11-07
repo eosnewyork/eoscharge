@@ -1,4 +1,5 @@
 {
+  "UNDER_CONSTRUCTION": "Under Construction",
   "TAKE_CHARGE": "Take Charge of Your Account",
   "FREQ_ASKED_QUES": "Frequently Asked Questions",
   "ENTER_YOUR_ACCOUNT": "Enter your {{currency}} Account below to receive a custom report of how many actions you can perform on the {{currency}} Mainnet",
@@ -39,6 +40,4 @@
   "DISCLAIMER_PARA_2": "We do not use cookies nor do we store your account name nor any personal information at EOSCharge.io. Your account name is stored locally on your computer to quickly allow you to reenter it on your next visit.",
   "LINKS_DISCLAIMER": "When visiting websites outside of EOS Charge, we cannot guarantee safety or validity of who they represent. Please exercise caution and be dilligent with the security of your account keys and information. Only share information with websites that you have validated for yourself.",
   "MADE_WITH_LOVE": "Made with <span role='img' aria-label='heart' aria-labelledby='heart'>❤️</span> by <a target='_blank' rel='noopener noreferrer' href='https://www.eosnewyork.io/'>EOS New York</a>"
-  
-  
 }
